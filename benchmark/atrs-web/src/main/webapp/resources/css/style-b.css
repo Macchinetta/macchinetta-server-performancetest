@@ -1,0 +1,203 @@
+@charset "utf-8";
+
+#content th.label {
+  padding: 2px;
+}
+
+#flight td,
+#flight th {
+	font-size: 11px;
+	text-align: center;
+}
+
+#vacantsearch td {
+  padding: 4px 0;
+	text-align: center;
+	height: 25px;
+}
+
+#vacantsearch td div {
+  width:80px;
+  display: inline;
+}
+
+#vacantsearch .dep_date_td {
+  width: 320px;
+}
+
+#vacantsearch .route_td2 {
+  width :280px;
+}
+
+#vacantsearch .boarding_class_td {
+  width: 170px;
+}
+
+#vacantflightlist td, #vacantflightlist th {
+  padding: 4px 0;
+}
+
+#vacantflightlist td {
+	font-size: 11px;
+	text-align: center;
+}
+
+#vacantflightlist th {
+	font-size: 10px;
+	background-color: #4F81BD;
+	height: 37px;
+}
+
+#vacantflightlist th.label {
+  text-align: center;
+}
+
+#vacantflightlist th.null {
+	background-color: #CCC;
+	width: 70px;
+}
+
+#vacantflightlist th.flight_name_th {
+  width: 60px;
+}
+
+#vacantflightlist th.time_th {
+  width: 47px;
+}
+
+#vacantflightlist th.craft_type_th {
+  width: 43px;
+}
+
+#vacantflightlist th.fare_th {
+  width: 70px;
+}
+
+button.vacant-seat-over20,
+button.vacant-seat-over10,
+button.vacant-seat-0,
+button.vacant-seat-over0 {
+	width: 55px;
+	height:18px;
+	padding-top: 1px;
+	margin-bottom: 3px;
+	text-decoration: none;
+	font-size: 11px;
+	border: 1px solid #7F7F7F;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+button.vacant-seat-over20 {
+	color: #000000;
+	background-color: #FF6600;
+}
+
+button.vacant-seat-over10 {
+	color: #000000;
+	background-color: #FAC090;
+}
+
+button.vacant-seat-over0 {
+	color: #000000;
+	background-color: #B9CDE5;
+}
+
+button.vacant-seat-0 {
+	color: #FFFFFF;
+	background-color: #BFBFBF;
+}
+
+button:hover.legend-btn {
+    cursor: default;
+}
+
+.pagination {
+    text-align: right;
+    height: 18px;
+    margin: 18px 0 0;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.pagination p {
+    text-align: left;
+    float: left;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.pagination ul {
+    float: right;
+    display: inline-block;
+    *display: inline;
+    /* IE7 inline-block hack */
+    *zoom: 1;
+    margin-left: 0;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pagination li {
+    display: inline;
+}
+
+.pagination a {
+    float: left;
+    padding: 0 2px;
+    line-height: 34px;
+    text-decoration: none;
+}
+
+.pagination a:hover,.pagination .active a {
+    background-color: #f5f5f5;
+}
+
+.pagination .active a {
+    color: #999999;
+    cursor: default;
+}
+
+.pagination .disabled a,.pagination .disabled a:hover {
+    color: #999999;
+    background-color: transparent;
+    cursor: default;
+}
+
+.pagination .disabled img {
+  -webkit-filter: grayscale();
+  filter:url("data:image/svg+xml;utf-8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.6666 0.6666 0.6666 0 0 0.6666 0.6666 0.6666 0 0 0.6666 0.6666 0.6666 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+  filter: gray;
+}
+
+.pagination li:first-child a {
+    border-left-width: 1px;
+    -webkit-border-radius: 3px 0 0 3px;
+    -moz-border-radius: 3px 0 0 3px;
+    border-radius: 3px 0 0 3px;
+}
+
+.pagination li:last-child a {
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.pagination-centered {
+    text-align: center;
+}
+
+.pagination-right {
+    text-align: right;
+}
+
+#example span {
+  margin-left: 2px;
+  margin-right: 5px;
+}

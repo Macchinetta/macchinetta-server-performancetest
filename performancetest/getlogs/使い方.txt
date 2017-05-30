@@ -1,0 +1,50 @@
+=======================
+getlogs.shの使い方
+=======================
+
+◆説明
+
+./getlogs.sh {待機秒数} {出力回数} {出力フォルダ}
+
+機能１
+　vmstat,iostat,ps,sarのログを{待機秒数}の間隔で実行し、結果にシステム日時を付与したCSVファイルに整形して
+　｛出力フォルダ｝に出力します。｛出力フォルダ｝が無い場合は作成されます。
+　｛出力回数｝を超えると、コマンドが終了します。
+　既に出力ファイルがある時は、前の情報はクリアされますのでご注意ください。
+機能２
+　コマンドの開始時、終了時に、{出力フォルダ}に以下のログを出力します。
+　start.log
+　end.log
+　各々のログに出力されるものは以下のコマンドのログになります。
+　uname -a
+　dmesg
+　free
+　uptime
+　w
+　ipcs -a
+　ifconfig -a
+　df
+　netstat -rn
+　netstat -s
+
+◆使い方例
+１秒間隔で３０回ログを取得する。出力フォルダは/tmp/logsの場合
+
+$ ./getlogs.sh 1 30 /tmp/logs
+
+実行後、以下のファイルが出力されています。
+/tmp/logs/start.log
+/tmp/logs/end.log
+/tmp/logs/iostat.csv
+/tmp/logs/vmstat.csv
+/tmp/logs/ps.csv
+/tmp/logs/sar.dat
+/tmp/logs/sar.rpt
+
+
+◆注意事項
+パラメータのエラーチェックをしていないので、値の設定は注意して行ってください。
+
+
+以上
+

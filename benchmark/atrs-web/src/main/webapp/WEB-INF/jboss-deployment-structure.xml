@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- deployment setting file for jboss. -->
+<!-- this file should be place at atrs/WEB-INF/jboss-deployment-structure.xml -->
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.0">
+  <deployment>
+    <dependencies>
+       <!-- 
+         JBoss側のデータソースを利用すると、 AspectJの影響で正常に起動できない問題への対応。
+           WFLY-826 ModuleClassLoader breaks Aspect-J non-load-time-weaving aspects
+       -->
+       <module name="org.jboss.ironjacamar.jdbcadapters"/>
+    </dependencies>
+  </deployment>
+</jboss-deployment-structure>

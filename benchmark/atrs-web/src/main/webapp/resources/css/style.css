@@ -1,0 +1,700 @@
+@charset "utf-8";
+
+/* ----------------------------------------------------------------------*/
+/* 全体の設定                                                            */
+/* ----------------------------------------------------------------------*/
+
+* {
+	margin: 0;
+	padding: 0;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	text-decoration: none;	
+}
+
+html {
+	height: 100%;	
+}
+
+body {
+	height: 100%;
+	font-size: 12px;
+}
+
+img {
+	border: 0px;
+}
+
+input {
+  font-size:12px;
+  height: 20px;
+  padding-top: 2px;
+  background-color: #F2F2F2;
+  border: 1px solid #73A6DE;
+}
+
+input[type="radio"] + label:hover {
+    cursor: pointer;
+}
+
+button {
+  padding-top: 2px;
+  color: #FFF;
+  text-align: center;
+  background-color: #578CD8;
+  border: 1px solid #73A6DE;
+}
+
+button:active {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+button.util-btn {
+  margin: 2px 5px;
+  padding: 0px;
+  width: 80px;
+  height: 21px;
+  font-size: 12px;
+}
+
+button.disabled:hover {
+    cursor: default;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+select {
+  background-color: #F2F2F2;
+  border: 1px solid #73A6DE;
+}
+
+/* ----------------------------------------------------------------------*/
+/* 各領域の設定                                                          */
+/* ----------------------------------------------------------------------*/
+/* コンテナー */
+#container {
+  height: 100%;
+	width: 920px;
+	margin: 0;
+	border: 0;
+	text-align: left;
+	font-family: Verdana, Arial, sans-serif;
+  position: absolute; 
+	left: 50%;
+	margin-left: -460px;
+}
+
+#main {
+  padding:0px 25px;
+  background: url("../image/bg.jpg");
+	width: 870px;
+	height: auto !important; /*ie6対策*/
+	height: 100%;
+	min-height: 100%;
+	position: relative;
+	float: left;
+}
+
+#header {
+	width: 870px;
+	height: 81px;
+}
+
+#menu {
+    position: absolute;
+    z-index: 100;
+}
+
+#content {
+	margin: 15px 0px 50px 50px;
+	width: 770px;
+}
+
+#footer {
+	width: 870px;
+  height: 35px;
+	position: absolute;
+	bottom: 0; 
+	clear: both;
+	border-top: 3px solid #558ED5;
+	color: #27408B;
+	text-align: right;
+}
+
+#footer p {
+    padding: 5px 10px;
+}
+
+
+/* ----------------------------------------------------------------------*/
+/* メニュー                                                              */
+/* ----------------------------------------------------------------------*/
+/* メインメニュー */
+.main-menu * {
+	list-style: none;
+	display: block;
+}
+
+ul.main-menu {
+	width: 100%;
+	height: 20px;
+	text-align: left;
+	position: relative;
+}
+
+.main-menu li {
+    width: 140px;
+    border-right: 1px solid #FFFFFF;
+    overflow: hidden;
+    float: left;
+}
+
+.main-menu li.off {
+    position: relative;
+    height: 20px;
+}
+
+.main-menu li.on {
+    border-bottom: 1px solid #B9D3EE;
+}
+
+ul.main-menu>li.on {
+	overflow:visible;
+}
+
+.main-menu a {
+  padding-left: 5px;
+	text-decoration: none;
+	height: 20px;
+}
+
+.main-menu a:link {
+	color: #FFFFFF;
+}
+
+.main-menu a:visited {
+  color: #FFFFFF;
+}
+
+.main-menu a:hover {
+  color: #FFFFFF;
+}
+
+/* サブメニュー */
+.sub-menu {
+  padding-left: 0px;
+	background-color: #F0FFFF;
+	filter:alpha(opacity=90);
+	-moz-opacity:0.90;
+}
+
+ol.sub-menu li.off2 {
+    width: 140px;
+    height: 24px;
+    border-top: 1px dashed #27408B;
+    position: relative;
+    overflow: hidden;
+    background-color: #F0FFFF;
+}
+
+ol.sub-menu li.on2 {
+    width: 140px;
+    height: 24px;
+    border-top: 1px dashed #27408B;
+    overflow: hidden;
+    background-color: #36648B;
+}
+
+.sub-menu li {
+  line-height: 24px;
+	background-color: #F0FFFF;
+}
+
+ol.sub-menu>li.on2 {
+	overflow: visible;
+}
+
+ol.sub-menu {
+	text-align: left;
+	width: 140px;
+	position: relative;
+	border-bottom: 1px solid #27408B;
+}
+
+.sub-menu a:link {
+	color: #36648B;
+}
+
+.sub-menu a:visited {
+	color: #36648B;
+}
+
+.sub-menu a:hover {
+	color: #F0FFFF;
+}
+
+/* ----------------------------------------------------------------------*/
+/* メイン領域                                                            */
+/* ----------------------------------------------------------------------*/
+#content h1 {
+	width: 300px;
+	padding: 2px 8px;
+	margin-bottom: 10px;
+	font-size: 24px;
+	border-left: 15px solid #558ED5;
+	border-bottom: 5px solid #558ED5;
+	font-weight: bold;
+}
+
+#content h2 {
+	margin-top: 10px;
+	padding: 1px 10px;
+	font-size: 13px;
+}
+
+#content h2:before {
+  content: "■";
+  font-size: 20px;
+}
+
+#content hr {
+	border: 1px dotted #AAA;
+}
+
+#content table {
+	width: 770px;
+	margin: 5px 0px;
+	border-collapse: collapse;
+	border: 1px solid #73A6DE;
+}
+
+#content table#customer {
+  table-layout: fixed;
+}
+
+#content table#total_fare {
+  width: 400px;
+}
+
+#content table#total_fare th {
+  width: 100px;
+}
+
+#content th {
+	padding: 2px;
+	background-color: #558ED5;
+	color: #FFFFFF;
+	border: 1px solid #73A6DE;
+	text-align: center;
+	font-size: 12px;
+}
+
+#content th.label {
+  text-align: left;
+  vertical-align: middle;
+  padding: 2px 5px;
+  color: #000000;
+  background-color: #C6D9F1;
+}
+
+#content th.top_label {
+  text-align: center;
+  padding: 2px 10px;
+  color: #1F497D;
+  background-color: #C6D9F1;
+}
+
+
+#content table.vertical th {
+	padding-left: 5px;
+	text-align: left;
+}
+
+#content th#rep_name_label {
+  width: 230px;
+}
+
+#content th#rep_age_label {
+  width: 100px;
+}
+
+#content th#rep_sex_label {
+  width: 130px;
+}
+
+#content th#rep_costomer_no_label {
+  width: 220px;
+}
+
+#content th#name_label {
+  width: 240px;
+}
+
+#content th#age_label {
+  width: 90px;
+}
+
+#content th#sex_label {
+  width: 120px;
+}
+
+#content th#costomer_no_label {
+  width: 180px;
+}
+
+#content th#no_label {
+  width: 30px;
+}
+
+#content th p,#content td p {
+  padding: 1px 0px;
+  white-space: nowrap;
+}
+
+#content td {
+  vertical-align: top;
+	padding: 4px 10px;
+	text-align: left;
+	border: 1px solid #73A6DE;
+	font-size: 12px;
+	background-color: #F2F2F2;
+}
+
+#content td.info-left {
+  text-align: left;
+  vertical-align: middle;
+}
+
+#content td.center {
+  text-align: center;
+}
+
+#content td.info-center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#content table #mail {
+  word-break: break-all;
+  word-wrap: break-word;
+}
+
+#content div.flow {
+	margin-bottom: 15px;
+	text-align: right;
+}
+
+#content p.header_guide {
+  margin: 5px 0px;
+}
+#content p.guide {
+	margin: 0px 20px 10px 25px;
+}
+
+#content div.info,#content div.logout_info {
+	width: 762px;
+	margin: 15px 0px;
+	padding: 0px;
+	border: 4px solid #558ED5;
+	text-align: center;
+	background-color: #F2F2F2;
+}
+
+#content div.info p {
+  margin: 10px;
+}
+
+#content div.logout_info p {
+  margin: 10px;
+  padding: 50px 10px;
+}
+
+#content select.month,
+#content select.day {
+  width: 53px;
+}
+
+#content select.time {
+  width: 72px;
+}
+
+#content select.depAirportCd,
+#content select.arrAirportCd {
+  width: 105px;
+}
+
+#content p.error {
+  white-space: normal;
+}
+
+.error, .error p, .error ul li {
+	color: #FF0000;
+}
+
+#content button.forward,
+#content button.forwardx1_5,
+#content button.forwardx2_0,
+#content button.backward,
+#content button.backwardx1_5,
+#content button.backwardx2_0,
+#content button.logout_forward,
+#content button.logout_backward {
+  margin-left: 10px;
+  border: 1px double #888;
+}
+
+#content button.forward,
+#content button.forwardx1_5,
+#content button.forwardx2_0,
+#content button.logout_forward {
+  background-color: #FF6600;
+  font-size: 18px;
+  height: 30px;
+  padding: 1px 10px;
+}
+
+#content button.backward,
+#content button.backwardx1_5,
+#content button.backwardx2_0,
+#content button.logout_backward {
+  background-color: #558ED5;
+  font-size: 14px;
+  height: 25px;
+  padding: 1px 5px;
+}
+
+#content button.logout_forward,
+#content button.logout_backward {
+  height: 40px;
+  font-size: 20px;
+}
+
+#content button.logout_forward {
+  width: 130px;
+}
+
+#content button.logout_backward {
+  width: 130px;
+}
+
+#content button.forward{
+  width: 120px;  
+}
+
+#content button.backward {
+  width: 120px;
+}
+
+#content button.forwardx1_5{
+  width: 180px;
+}
+
+#content button.backwardx1_5 {
+  width: 150px;
+}
+
+#content button.forwardx2_0 {
+  width: 260px;
+}
+#content button.backwardx2_0 {
+  width: 200px;
+}
+
+#content input.radio_btn {
+  margin-left: 10px;
+  border: 0px;
+  height: 10px;
+}
+
+#content .navi {
+	margin: 20px;
+	text-align: right;
+}
+
+#content .navi-left {
+	margin: 5px 0px 20px;
+	text-align: left;
+	float:left;
+}
+
+#content .navi-left button {
+  margin-left: 0px;
+  margin-right: 10px;
+}
+
+
+#content .navi-right {
+  margin: 5px 0px 20px;
+  text-align: right;
+  float: right;
+}
+
+#content .navi-right button {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+#content .navi-backward {
+  clear: both; 
+  width: 770px;
+  margin: 10px 0px 50px;
+  text-align: right;
+}
+
+#content .navi-backward button {
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+
+#content .navi-both {
+	margin: 20px 20px 80px 20px;
+	position: relative;
+}
+
+#content .navi-forward {
+	margin: 30px;
+	text-align: center;
+}
+
+#content .navi-both button.forward,
+#content .navi-both button.forwardx1_5,
+#content .navi-both button.forwardx2_0 {
+	position: absolute;
+	left: 470px;
+	float: left;
+}
+
+#content .navi-both button.backward,
+#content .navi-both button.backwardx1_5,
+#content .navi-both button.backwardx2_0 {
+	position: absolute;
+	left: 50px;
+	float: left;
+}
+
+#content div#passengerFormList div {
+  text-align: right;
+}
+
+#content input#rep_mail {
+  width: 100%;
+}
+
+#content div#login {
+  width: 100%;
+  height: 20px;
+  margin: 10px 0px 0px;
+  padding: 0px ;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#content td.requireLine {
+  width: 190px;
+}
+
+#content ul.note {
+  margin-top: 8px;
+  list-style-type:none;
+}
+
+#content ul.input-auxiliary-message {
+  margin-top: 0px;
+  list-style-type:none;
+}
+
+#content #password {
+  width: 170px;
+}
+
+
+#content .member_address {
+  width: 60%;
+}
+
+#content .member_mail {
+  width: 60%;
+}
+
+/* ----------------------------------------------------------------------*/
+/* ヘッダー領域                                                                */
+/* ----------------------------------------------------------------------*/
+#header-logo {
+  float: left;
+}
+
+#header-content {
+  float: left;
+  width: 488px;
+  margin-left: 10px;
+}
+
+#header-login {
+  height: 28px;
+  margin: 31px 0px 0px 0px;
+}
+
+#header-menu {
+  width: 100%;
+  height: 20px;
+  background-color: #558ED5;
+  line-height: 20px;
+}
+
+#header #header-login p {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+#header #header-login #headerCustomerNo {
+  margin-right: 10px;
+  width: 90px;
+}
+
+#header #header-login #headerPassword {
+  width: 160px;
+}
+
+#header input {
+  height: 20px;
+  padding: 0;
+  vertical-align: middle;
+  border: 1px solid #73A6DE;
+  background-color: #FFFFFF;
+}
+
+#header button {
+  padding: 0;
+  width: 80px;
+  height: 20px;
+  font-size:12px;
+  font-weight: bold;
+}
+
+#header #header_input_area {
+  float: left;
+  white-space: nowrap;
+}
+
+
+#header #header_input_area label,
+#header #header_input_area p {
+  margin-left: 4px;
+}
+
+#content #login label {
+  font-size: 10pt;
+  margin-left: 15px;
+  height: 13px;
+  padding: 2px 0 0;
+}
+
+#header #header_button_area {
+  float: right;
+}
+
