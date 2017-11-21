@@ -3,7 +3,7 @@
 <ul>
   <li class="top-info-item">ATRS（本アプリケーション）は、Macchinetta オンライン版 フレームワーク（以下、フレームワーク）を用いたサンプルアプリケーションです。</li>
 
-  <li class="top-info-item">ATRSのバージョンは、1.1.0です。</li>
+  <li class="top-info-item">ATRSのバージョンは、1.4.1です。</li>
 
   <li class="top-info-item">ATRSの利用方法について
     <ul>
