@@ -51,8 +51,8 @@ public class FlightSearchCriteriaValidator implements Validator {
         FlightSearchCriteriaForm flightSearchCriteriaForm = (FlightSearchCriteriaForm) target;
 
         // 出発空港と到着空港が同じでないかチェックする。
-        if (!errors.hasFieldErrors("depAirportCd")
-                && !errors.hasFieldErrors("arrAirportCd")) {
+        if (!errors.hasFieldErrors("depAirportCd") && !errors.hasFieldErrors(
+                "arrAirportCd")) {
             String depAirport = flightSearchCriteriaForm.getDepAirportCd();
             String arrAirport = flightSearchCriteriaForm.getArrAirportCd();
             if (depAirport.equals(arrAirport)) {
@@ -66,10 +66,9 @@ public class FlightSearchCriteriaValidator implements Validator {
             int depDay = flightSearchCriteriaForm.getDay();
             int depYear = ticketHelper.getDepYear(depMonth);
             if (!DateTimeUtil.isValidDate(depYear, depMonth, depDay)) {
-                errors.rejectValue(
-                        "day",
-                        CommonErrorCode.E_AR_FW_5001.code(),
-                        new Object[] { new DefaultMessageSourceResolvable("flightSearchCriteriaForm.day") },
+                errors.rejectValue("day", CommonErrorCode.E_AR_FW_5001.code(),
+                        new Object[] {
+                                new DefaultMessageSourceResolvable("flightSearchCriteriaForm.day") },
                         null);
             }
         }

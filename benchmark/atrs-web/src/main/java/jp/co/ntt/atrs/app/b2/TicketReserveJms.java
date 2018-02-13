@@ -44,18 +44,18 @@ public class TicketReserveJms {
     public ReserveCompleteOutputDto registerReservationJms(JmsInput jmsInput) {
 
         TicketSearchForm ticketSearchForm = new TicketSearchForm();
-        ticketSearchForm.getFlightSearchCriteriaForm().setMonth(
-                jmsInput.getMonth());
-        ticketSearchForm.getFlightSearchCriteriaForm()
-                .setDay(jmsInput.getDay());
-        ticketSearchForm.getFlightSearchCriteriaForm().setTime(
-                jmsInput.getTime());
+        ticketSearchForm.getFlightSearchCriteriaForm().setMonth(jmsInput
+                .getMonth());
+        ticketSearchForm.getFlightSearchCriteriaForm().setDay(jmsInput
+                .getDay());
+        ticketSearchForm.getFlightSearchCriteriaForm().setTime(jmsInput
+                .getTime());
         ticketSearchForm.getFlightSearchCriteriaForm().setBoardingClassCd(
                 jmsInput.getBoardingClassCd());
-        ticketSearchForm.getFlightSearchCriteriaForm().setDepAirportCd(
-                jmsInput.getDepAirportCd());
-        ticketSearchForm.getFlightSearchCriteriaForm().setArrAirportCd(
-                jmsInput.getArrAirportCd());
+        ticketSearchForm.getFlightSearchCriteriaForm().setDepAirportCd(jmsInput
+                .getDepAirportCd());
+        ticketSearchForm.getFlightSearchCriteriaForm().setArrAirportCd(jmsInput
+                .getArrAirportCd());
 
         Pageable pageable = new PageRequest(0, 1000);
         FlightSearchResultOutputDto flightSearchResultOutputDto = ticketSearchHelper
@@ -74,11 +74,11 @@ public class TicketReserveJms {
         List<SelectFlightForm> selectFlightFormList = new ArrayList<SelectFlightForm>();
         selectFlightFormList.add(selectFlightForm);
 
-        List<Flight> flightList = ticketReserveHelper
-                .createFlightList(selectFlightFormList);
+        List<Flight> flightList = ticketReserveHelper.createFlightList(
+                selectFlightFormList);
 
-        return ticketReserveHelper.reserveJms(ticketReserveService
-                .findMember(jmsInput.getCustomerNo()), flightList);
+        return ticketReserveHelper.reserveJms(ticketReserveService.findMember(
+                jmsInput.getCustomerNo()), flightList);
     }
 
 }

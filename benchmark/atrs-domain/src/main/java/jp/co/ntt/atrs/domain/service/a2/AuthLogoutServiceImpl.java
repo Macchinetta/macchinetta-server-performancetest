@@ -27,8 +27,8 @@ public class AuthLogoutServiceImpl implements AuthLogoutService {
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(AuthLogoutServiceImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(
+            AuthLogoutServiceImpl.class);
 
     /**
      * カード会員情報リポジトリ。
@@ -51,8 +51,9 @@ public class AuthLogoutServiceImpl implements AuthLogoutService {
         // DBを更新する
         int updateCount = memberRepository.updateToLogoutStatus(member);
         if (updateCount != 1) {
-            throw new SystemException(LogMessages.E_AR_A0_L9002.getCode(), LogMessages.E_AR_A0_L9002
-                    .getMessage(updateCount, 1));
+            throw new SystemException(LogMessages.E_AR_A0_L9002
+                    .getCode(), LogMessages.E_AR_A0_L9002.getMessage(
+                            updateCount, 1));
         }
 
         if (LOGGER.isInfoEnabled()) {

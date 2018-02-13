@@ -54,8 +54,10 @@ public class PeakTimeProvider {
 
         for (PeakTime peakTime : peakTimeList) {
             Interval peakTimeInterval = new Interval(new DateTime(peakTime
-                    .getPeakStartDate()).withTimeAtStartOfDay(), new DateTime(peakTime
-                    .getPeakEndDate()).withTimeAtStartOfDay().plus(1));
+                    .getPeakStartDate())
+                            .withTimeAtStartOfDay(), new DateTime(peakTime
+                                    .getPeakEndDate()).withTimeAtStartOfDay()
+                                            .plus(1));
             // 搭乗日が該当するピーク時期積算比率を返却します
             if (peakTimeInterval.contains(depDate.getTime())) {
                 return peakTime;

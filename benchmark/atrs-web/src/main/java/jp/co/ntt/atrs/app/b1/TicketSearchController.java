@@ -78,7 +78,8 @@ public class TicketSearchController {
     public String searchForm(Model model) {
 
         model.addAttribute(ticketSearchHelper.createDefaultTicketSearchForm());
-        model.addAttribute(ticketSearchHelper.createSearchFlightFormOutputDto());
+        model.addAttribute(ticketSearchHelper
+                .createSearchFlightFormOutputDto());
 
         return "B1/flightSearchForm";
     }
@@ -95,7 +96,8 @@ public class TicketSearchController {
     @RequestMapping(method = RequestMethod.GET, params = "redo")
     public String searchRedo(TicketSearchForm ticketSearchForm, Model model) {
 
-        model.addAttribute(ticketSearchHelper.createSearchFlightFormOutputDto());
+        model.addAttribute(ticketSearchHelper
+                .createSearchFlightFormOutputDto());
 
         return "B1/flightSearchForm";
     }
@@ -117,8 +119,8 @@ public class TicketSearchController {
         }
 
         try {
-            model.addAttribute(ticketSearchHelper.searchFlight(
-                    ticketSearchForm, pageable));
+            model.addAttribute(ticketSearchHelper.searchFlight(ticketSearchForm,
+                    pageable));
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());
             return searchRedo(ticketSearchForm, model);
@@ -147,9 +149,8 @@ public class TicketSearchController {
         }
 
         try {
-            List<Flight> flightList = ticketHelper
-                    .createFlightList(ticketSearchForm
-                            .getSelectFlightFormList());
+            List<Flight> flightList = ticketHelper.createFlightList(
+                    ticketSearchForm.getSelectFlightFormList());
             ticketHelper.validateFlightList(flightList);
         } catch (BusinessException e) {
             model.addAttribute(e.getResultMessages());

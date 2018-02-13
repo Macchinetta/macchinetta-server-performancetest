@@ -23,13 +23,13 @@ import javax.servlet.http.HttpServletResponse;
  * @author NTT 電電太郎
  */
 public class AtrsUsernamePasswordAuthenticationFilter extends
-                                                     UsernamePasswordAuthenticationFilter {
+                                                      UsernamePasswordAuthenticationFilter {
 
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(AtrsUsernamePasswordAuthenticationFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(
+            AtrsUsernamePasswordAuthenticationFilter.class);
 
     /**
      * お客様番号文字数

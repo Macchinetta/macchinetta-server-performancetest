@@ -37,8 +37,9 @@ public class MemberHelper {
         Member member = beanMapper.map(memberForm, Member.class);
 
         // 誕生日
-        LocalDate dateOfBirth = new LocalDate(memberForm.getYearOfBirth(), memberForm
-                .getMonthOfBirth(), memberForm.getDayOfBirth());
+        LocalDate dateOfBirth = new LocalDate(memberForm
+                .getYearOfBirth(), memberForm.getMonthOfBirth(), memberForm
+                        .getDayOfBirth());
         member.setBirthday(dateOfBirth.toDate());
 
         // 電話番号
@@ -56,8 +57,8 @@ public class MemberHelper {
         member.setCreditType(ct);
 
         // クレジットカード期限
-        String creditTerm = memberForm.getCreditMonth() + "/"
-                + memberForm.getCreditYear();
+        String creditTerm = memberForm.getCreditMonth() + "/" + memberForm
+                .getCreditYear();
         member.setCreditTerm(creditTerm);
 
         return member;
@@ -85,8 +86,8 @@ public class MemberHelper {
         }
 
         // Zipcode
-        if (StringUtils.hasLength(member.getZipCode())
-                && member.getZipCode().length() >= 7) {
+        if (StringUtils.hasLength(member.getZipCode()) && member.getZipCode()
+                .length() >= 7) {
             memberForm.setZipCode1(member.getZipCode().substring(0, 3));
             memberForm.setZipCode2(member.getZipCode().substring(3, 7));
         }

@@ -55,8 +55,9 @@ public class MemberUpdateServiceImpl implements MemberUpdateService {
         // ユーザ情報変更を実施し、登録情報の更新を行う。
         int updateMemberCount = memberRepository.update(member);
         if (updateMemberCount != 1) {
-            throw new SystemException(LogMessages.E_AR_A0_L9002.getCode(), LogMessages.E_AR_A0_L9002
-                    .getMessage(updateMemberCount, 1));
+            throw new SystemException(LogMessages.E_AR_A0_L9002
+                    .getCode(), LogMessages.E_AR_A0_L9002.getMessage(
+                            updateMemberCount, 1));
         }
 
         // パスワードの変更がある場合のみMemberLoginを更新する。
@@ -68,11 +69,12 @@ public class MemberUpdateServiceImpl implements MemberUpdateService {
                     .getMemberLogin().getPassword()));
 
             // MemberLoginの更新
-            int updateMemberLoginCount = memberRepository
-                    .updateMemberLogin(member);
+            int updateMemberLoginCount = memberRepository.updateMemberLogin(
+                    member);
             if (updateMemberLoginCount != 1) {
-                throw new SystemException(LogMessages.E_AR_A0_L9002.getCode(), LogMessages.E_AR_A0_L9002
-                        .getMessage(updateMemberLoginCount, 1));
+                throw new SystemException(LogMessages.E_AR_A0_L9002
+                        .getCode(), LogMessages.E_AR_A0_L9002.getMessage(
+                                updateMemberLoginCount, 1));
             }
         }
     }

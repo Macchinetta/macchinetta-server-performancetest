@@ -18,9 +18,8 @@ import org.springframework.stereotype.Component;
  * @author NTT 電電太郎
  */
 @Component
-public class AtrsAuthenticationSuccessListener
-                                              implements
-                                              ApplicationListener<AuthenticationSuccessEvent> {
+public class AtrsAuthenticationSuccessListener implements
+                                               ApplicationListener<AuthenticationSuccessEvent> {
 
     /**
      * 会員ログインサービス。

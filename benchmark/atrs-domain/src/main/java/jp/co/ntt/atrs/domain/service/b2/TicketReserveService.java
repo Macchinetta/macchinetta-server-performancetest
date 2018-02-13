@@ -40,7 +40,8 @@ public interface TicketReserveService {
      * @return 予約番号と予約したチケット料金の支払期限
      * @throws BusinessException 空席数が搭乗者数未満の場合にスローする例外
      */
-    TicketReserveDto registerReservation(Reservation reservation) throws BusinessException;
+    TicketReserveDto registerReservation(
+            Reservation reservation) throws BusinessException;
 
     /**
      * お客様番号に該当するカード会員情報を検索する。

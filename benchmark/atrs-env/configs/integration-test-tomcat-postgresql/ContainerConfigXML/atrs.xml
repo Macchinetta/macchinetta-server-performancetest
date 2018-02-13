@@ -3,23 +3,22 @@
 <!-- this file should be place at CATALINA_HOME/conf/Catalina/localhost/atrs.xml -->
 <Context>
 
-    <Resource
-       name="jdbc/AtrsDS" 
-       type="javax.sql.DataSource"
-       driverClassName="org.postgresql.Driver"
-       username="postgres"
-       password="postgres"
-       url="jdbc:postgresql://xxx.xxx.xxx.xxx:5432/atrs"
-       maxWait="5000"
-       initialSize="10"
-       minIdle="10"
-       maxIdle="10"
-       maxActive="100"
-       />
-       
+  <Resource name="jdbc/AtrsDS" type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+    username="postgres" password="postgres" url="jdbc:postgresql://xxx.xxx.xxx.xxx:5432/atrs"
+    maxWait="5000" initialSize="10" minIdle="10" maxIdle="10" maxActive="100" />
 
-     <Loader className="org.apache.catalina.loader.VirtualWebappLoader"
-         virtualClasspath="/tmp/atrs-env/*.jar" />
-     <JarScanner scanAllDirectories="true" />
+
+  <Loader className="org.apache.catalina.loader.VirtualWebappLoader" virtualClasspath="/opt/tomcat/tomcat/webapps-env-jars/atrs-env/*.jar" />
+  <JarScanner scanAllDirectories="true" />
+  
+  <Resource password="admin" type="org.apache.activemq.ActiveMQConnectionFactory" name="jms/ConnectionFactory" useEmbeddedBroker="false" 
+    factory="org.apache.activemq.jndi.JNDIReferenceFactory" description="JMS Connection Factory" userName="admin" 
+    brokerURL="tcp://xxx.xxx.xxx.xxx:61616?jms.prefetchPolicy.queuePrefetch=1" brokerName="ActiveMQBroker" auth="Container"/>
+
+  <Resource type="org.apache.activemq.command.ActiveMQQueue" name="jms/queue/RequestQueue" factory="org.apache.activemq.jndi.JNDIReferenceFactory" 
+    auth="Container" physicalName="RequestQueue"/>
+
+  <Resource type="org.apache.activemq.command.ActiveMQQueue" name="jms/queue/ResponseQueue" factory="org.apache.activemq.jndi.JNDIReferenceFactory" 
+    auth="Container" physicalName="ResponseQueue"/>
 
 </Context>

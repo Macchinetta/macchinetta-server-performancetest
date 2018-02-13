@@ -51,8 +51,8 @@ public class MemberUpdateValidator implements Validator {
         String reEnterPassword = form.getReEnterPassword();
 
         if (StringUtils.hasLength(confPassword)) {
-            if (StringUtils.hasLength(password)
-                    && StringUtils.hasLength(reEnterPassword)) {
+            if (StringUtils.hasLength(password) && StringUtils.hasLength(
+                    reEnterPassword)) {
                 if (!password.equals(reEnterPassword)) {
 
                     // パスワードと再入力したパスワードが違う場合エラー
@@ -65,8 +65,8 @@ public class MemberUpdateValidator implements Validator {
             }
 
         } else {
-            if (StringUtils.hasLength(password)
-                    || StringUtils.hasLength(reEnterPassword)) {
+            if (StringUtils.hasLength(password) || StringUtils.hasLength(
+                    reEnterPassword)) {
 
                 // 現在のパスワードのみ空欄の場合エラー
                 errors.reject(MemberUpdateErrorCode.E_AR_C2_5002.code());
@@ -75,8 +75,8 @@ public class MemberUpdateValidator implements Validator {
 
         try {
             errors.pushNestedPath("memberForm");
-            ValidationUtils
-                    .invokeValidator(memberValidator, memberForm, errors);
+            ValidationUtils.invokeValidator(memberValidator, memberForm,
+                    errors);
         } finally {
             errors.popNestedPath();
         }

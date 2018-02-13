@@ -1,8 +1,6 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:sec="http://www.springframework.org/schema/security"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xsi:schemaLocation="http://www.springframework.org/schema/security
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:sec="http://www.springframework.org/schema/security" xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -11,54 +9,47 @@
 
   <!-- ログイン認証の設定 -->
   <sec:http auto-config="false" entry-point-ref="loginUrlAuthenticationEntryPoint">
-    <sec:custom-filter ref="userIdMDCPutFilter" after="ANONYMOUS_FILTER"/>
+    <sec:custom-filter ref="userIdMDCPutFilter" after="ANONYMOUS_FILTER" />
     <sec:custom-filter position="FORM_LOGIN_FILTER" ref="atrsUsernamePasswordAuthenticationFilter" />
-    <sec:logout
-        logout-url="/Auth/dologout"
-        invalidate-session="true"
-        delete-cookies="JSESSIONID"
-        success-handler-ref="logoutSuccessHandler"
-    />
+    <sec:logout logout-url="/Auth/dologout" invalidate-session="true" delete-cookies="JSESSIONID"
+      success-handler-ref="logoutSuccessHandler" />
     <sec:intercept-url pattern="/Ticket/reserve/member" access="hasRole('MEMBER')" />
     <sec:intercept-url pattern="/Member/update" access="hasRole('MEMBER')" />
     <sec:session-management />
-    <sec:access-denied-handler ref="accessDeniedHandler"/>
+    <sec:access-denied-handler ref="accessDeniedHandler" />
   </sec:http>
 
   <!-- ログイン入力チェックフィルター -->
-  <bean id="atrsUsernamePasswordAuthenticationFilter"
-    class="jp.co.ntt.atrs.app.common.security.AtrsUsernamePasswordAuthenticationFilter" >
+  <bean id="atrsUsernamePasswordAuthenticationFilter" class="jp.co.ntt.atrs.app.common.security.AtrsUsernamePasswordAuthenticationFilter">
     <property name="authenticationManager" ref="authenticationManager" />
     <property name="authenticationFailureHandler" ref="redirectErrorHandler" />
     <property name="authenticationSuccessHandler" ref="redirectHandler" />
     <property name="requiresAuthenticationRequestMatcher">
-        <bean class="org.springframework.security.web.util.matcher.AntPathRequestMatcher">
-            <constructor-arg index="0" value="/Auth/dologin" />
-            <constructor-arg index="1" value="POST" />
-        </bean>
+      <bean class="org.springframework.security.web.util.matcher.AntPathRequestMatcher">
+        <constructor-arg index="0" value="/Auth/dologin" />
+        <constructor-arg index="1" value="POST" />
+      </bean>
     </property>
     <property name="usernameParameter" value="customerNo" />
     <property name="passwordParameter" value="password" />
   </bean>
-  
+
   <!-- 認証成功した場合画面遷移Handler -->
-  <bean id="redirectHandler"
-    class="org.terasoluna.gfw.security.web.redirect.RedirectAuthenticationHandler">
-    <property name="targetUrlParameter" value="redirectTo"/>
-    <property name="alwaysUseDefaultTargetUrl" value="false"/>
+  <bean id="redirectHandler" class="org.terasoluna.gfw.security.web.redirect.RedirectAuthenticationHandler">
+    <property name="targetUrlParameter" value="redirectTo" />
+    <property name="alwaysUseDefaultTargetUrl" value="false" />
   </bean>
-  
+
   <!-- 認証失敗した場合画面遷移Handler -->
-  <bean id="redirectErrorHandler"
-    class="jp.co.ntt.atrs.app.common.security.AtrsAuthenticationFailureHandler">
-    <property name="defaultFailureUrl" value="/Auth/login?error"/>
-    <property name="useForward" value="true"/>
+  <bean id="redirectErrorHandler" class="jp.co.ntt.atrs.app.common.security.AtrsAuthenticationFailureHandler">
+    <property name="defaultFailureUrl" value="/Auth/login?error" />
+    <property name="useForward" value="true" />
   </bean>
 
   <!-- ログイン画面設定 -->
   <bean id="loginUrlAuthenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-      <constructor-arg value="/Auth/login" />
-      <property name="useForward" value="true"/>
+    <constructor-arg value="/Auth/login" />
+    <property name="useForward" value="true" />
   </bean>
 
   <!-- 認証マネージャ -->
@@ -67,53 +58,48 @@
   </sec:authentication-manager>
 
   <!-- 認証プロバイダ -->
-  <bean id="authenticationProvider"
-    class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+  <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
     <property name="hideUserNotFoundExceptions" value="false" />
     <property name="passwordEncoder" ref="passwordEncoder" />
     <property name="userDetailsService" ref="atrsUserService" />
   </bean>
-  
+
   <!-- ユーザー情報管理サービス -->
-  <bean id="atrsUserService"
-    class="jp.co.ntt.atrs.domain.service.a1.AtrsUserDetailService" />
-  
+  <bean id="atrsUserService" class="jp.co.ntt.atrs.domain.service.a1.AtrsUserDetailService" />
+
   <!-- パスワードエンコーダ -->
-  <bean id="passwordEncoder"
-    class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+  <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
   <!-- ログアウト成功Handler -->
   <bean id="logoutSuccessHandler" class="jp.co.ntt.atrs.app.common.security.AtrsLogoutSuccessHandler">
     <property name="defaultTargetUrl" value="/Auth/logout?complete" />
   </bean>
 
-   <bean id="accessDeniedHandler"
-       class="org.springframework.security.web.access.DelegatingAccessDeniedHandler">
-       <constructor-arg index="0">
-           <map>
-               <entry
-                   key="org.springframework.security.web.csrf.InvalidCsrfTokenException">
-                   <bean class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
-                       <property name="errorPage" value="/WEB-INF/views/common/error/csrf-error.jsp" />
-                   </bean>
-               </entry>
-               <entry key="org.springframework.security.web.csrf.MissingCsrfTokenException">
-                   <bean class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
-                       <property name="errorPage" value="/WEB-INF/views/common/error/missing-csrf-token-error.jsp" />
-                   </bean>
-               </entry>
-           </map>
-       </constructor-arg>
-       <constructor-arg index="1">
-           <bean class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
-               <property name="errorPage" value="/WEB-INF/views/common/error/access-denied-error.jsp" /> 
-           </bean>
-       </constructor-arg>
-   </bean>
-  
-  <bean id="userIdMDCPutFilter" class="org.terasoluna.gfw.security.web.logging.UserIdMDCPutFilter">
-      <property name="removeValue" value="true" />
+  <bean id="accessDeniedHandler" class="org.springframework.security.web.access.DelegatingAccessDeniedHandler">
+    <constructor-arg index="0">
+      <map>
+        <entry key="org.springframework.security.web.csrf.InvalidCsrfTokenException">
+          <bean class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+            <property name="errorPage" value="/WEB-INF/views/common/error/csrf-error.jsp" />
+          </bean>
+        </entry>
+        <entry key="org.springframework.security.web.csrf.MissingCsrfTokenException">
+          <bean class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+            <property name="errorPage" value="/WEB-INF/views/common/error/missing-csrf-token-error.jsp" />
+          </bean>
+        </entry>
+      </map>
+    </constructor-arg>
+    <constructor-arg index="1">
+      <bean class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+        <property name="errorPage" value="/WEB-INF/views/common/error/access-denied-error.jsp" />
+      </bean>
+    </constructor-arg>
   </bean>
-  
-  
+
+  <bean id="userIdMDCPutFilter" class="org.terasoluna.gfw.security.web.logging.UserIdMDCPutFilter">
+    <property name="removeValue" value="true" />
+  </bean>
+
+
 </beans>

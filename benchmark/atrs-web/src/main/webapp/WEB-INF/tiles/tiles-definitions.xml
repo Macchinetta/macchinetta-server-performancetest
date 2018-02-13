@@ -5,56 +5,55 @@
 
 <tiles-definitions>
 
-  <definition name="layout"
-    template="/WEB-INF/views/layout/template.jsp">
+  <definition name="layout" template="/WEB-INF/views/layout/template.jsp">
 
     <put-attribute name="title" value="Airline Ticket Reservation System" />
     <put-attribute name="header-login">
-        <definition template="/WEB-INF/views/layout/template-header-login.jsp">
-          <put-attribute name="loginForm" value="/WEB-INF/views/A1/loginForm-header.jsp" />
-          <put-attribute name="memberInfo" value="/WEB-INF/views/A1/loginComplete-header.jsp" />
-        </definition>
+      <definition template="/WEB-INF/views/layout/template-header-login.jsp">
+        <put-attribute name="loginForm" value="/WEB-INF/views/A1/loginForm-header.jsp" />
+        <put-attribute name="memberInfo" value="/WEB-INF/views/A1/loginComplete-header.jsp" />
+      </definition>
     </put-attribute>
     <put-attribute name="header-menu" value="/WEB-INF/views/A0/header.jsp" />
-    <put-attribute name="content" value=""  />
+    <put-attribute name="content" value="" />
     <put-attribute name="footer" value="/WEB-INF/views/A0/footer.jsp" />
 
-   <put-list-attribute name="css">
+    <put-list-attribute name="css">
       <add-attribute value="style" />
     </put-list-attribute>
     <put-list-attribute name="javascript">
       <add-attribute value="common" />
     </put-list-attribute>
   </definition>
-  
-  <definition name="*/*" extends="layout">
-    <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp"  /> 
-  </definition>
-  
-  <definition name="B1/flightSearchResult" extends="layout">
-    <put-attribute name="content" value="/WEB-INF/views/B1/flightSearchResult.jsp"  /> 
 
-   <put-list-attribute name="css">
+  <definition name="*/*" extends="layout">
+    <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+  </definition>
+
+  <definition name="B1/flightSearchResult" extends="layout">
+    <put-attribute name="content" value="/WEB-INF/views/B1/flightSearchResult.jsp" />
+
+    <put-list-attribute name="css">
       <add-attribute value="style" />
       <add-attribute value="style-b" />
     </put-list-attribute>
   </definition>
-  
-  
-  <definition name="B1/flightSearchForm-top" extends="layout" 
+
+
+  <definition name="B1/flightSearchForm-top" extends="layout"
     template="/WEB-INF/views/layout/template-index.jsp">
-   
-    <put-attribute name="content_left" value="/WEB-INF/views/B1/flightSearchForm-top.jsp"  />
-    <put-attribute name="content_right" value="/WEB-INF/views/A0/top.jsp"  />
+
+    <put-attribute name="content_left" value="/WEB-INF/views/B1/flightSearchForm-top.jsp" />
+    <put-attribute name="content_right" value="/WEB-INF/views/A0/top.jsp" />
     <put-list-attribute name="css">
       <add-attribute value="style" />
       <add-attribute value="style-top" />
     </put-list-attribute>
   </definition>
-  
+
   <definition name="A1/loginForm" extends="layout">
-    <put-attribute name="content" value="/WEB-INF/views/A1/loginForm.jsp"  /> 
+    <put-attribute name="content" value="/WEB-INF/views/A1/loginForm.jsp" />
     <put-attribute name="header-login" value="" />
   </definition>
-  
+
 </tiles-definitions>

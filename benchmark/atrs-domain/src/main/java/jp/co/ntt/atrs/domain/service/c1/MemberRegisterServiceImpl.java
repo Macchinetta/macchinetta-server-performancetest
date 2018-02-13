@@ -58,14 +58,16 @@ public class MemberRegisterServiceImpl implements MemberRegisterService {
         // MyBatis3の機能(SelectKey)によりmemberにはcustomerNoが格納される。
         int insertMemberCount = memberRepository.insert(member);
         if (insertMemberCount != 1) {
-            throw new SystemException(LogMessages.E_AR_A0_L9002.getCode(), LogMessages.E_AR_A0_L9002
-                    .getMessage(insertMemberCount, 1));
+            throw new SystemException(LogMessages.E_AR_A0_L9002
+                    .getCode(), LogMessages.E_AR_A0_L9002.getMessage(
+                            insertMemberCount, 1));
         }
 
         int insertMemberLoginCount = memberRepository.insertMemberLogin(member);
         if (insertMemberLoginCount != 1) {
-            throw new SystemException(LogMessages.E_AR_A0_L9002.getCode(), LogMessages.E_AR_A0_L9002
-                    .getMessage(insertMemberLoginCount, 1));
+            throw new SystemException(LogMessages.E_AR_A0_L9002
+                    .getCode(), LogMessages.E_AR_A0_L9002.getMessage(
+                            insertMemberLoginCount, 1));
         }
         return member;
     }

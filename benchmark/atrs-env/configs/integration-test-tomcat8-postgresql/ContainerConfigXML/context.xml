@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!-- web application context file for tomcat. -->
+<!-- this file should be place at CATALINA_HOME/conf/Catalina/localhost/atrs.xml -->
+<Context>
+
+  <Resource name="jdbc/AtrsDS" type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+    username="postgres" password="P0stgres" url="jdbc:postgresql://localhost:5432/atrs"
+    maxWait="5000" initialSize="100" minIdle="100" maxIdle="100" maxActive="100" />
+
+
+  <Resources className="org.apache.catalina.webresources.StandardRoot">
+    <PreResources className="org.apache.catalina.webresources.DirResourceSet" base="/opt/tomcat/tomcat/webapps-env-jars/atrs-env/"
+      internalPath="/" webAppMount="/WEB-INF/lib" />
+  </Resources>
+  <JarScanner scanAllDirectories="true" />
+
+  <Resource auth="Container" brokerName="ActiveMQBroker" brokerURL="tcp://localhost:61616"
+    password="admin" userName="admin" description="JMS Connection Factory" factory="org.apache.activemq.jndi.JNDIReferenceFactory"
+    name="jms/ConnectionFactory" type="org.apache.activemq.ActiveMQConnectionFactory"
+    useEmbeddedBroker="false" />
+  <Resource name="jms/queue/RequestQueue" auth="Container" type="org.apache.activemq.command.ActiveMQQueue"
+    factory="org.apache.activemq.jndi.JNDIReferenceFactory" physicalName="RequestQueue" />
+  <Resource name="jms/queue/ResponseQueue" auth="Container" type="org.apache.activemq.command.ActiveMQQueue"
+    factory="org.apache.activemq.jndi.JNDIReferenceFactory" physicalName="ResponseQueue" />
+
+</Context>

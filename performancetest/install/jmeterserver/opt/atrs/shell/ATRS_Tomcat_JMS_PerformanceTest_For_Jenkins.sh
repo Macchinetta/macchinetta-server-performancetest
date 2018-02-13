@@ -16,7 +16,7 @@
 if [ ${#} -eq 15 ]; then
 
     echo "指定された引数は15個です。"
-    echo "第1引数:性能試験タイプ=${1}"
+    echo "第1引数:実施中MQデータ登録有無=${1}"
     echo "第2引数:性能試験実施回数=${2}"
     echo "第3引数:試験実施前メッセージ取得時間設定（秒）=${3}"
     echo "第4引数:測定時間設定（秒）=${4}"
@@ -34,7 +34,7 @@ if [ ${#} -eq 15 ]; then
     echo "を変更します。"
 
     #性能試験タイプ
-    PERFORMANCE_TYPE=${1}
+    ONGOING_REGISTER_DATA=${1}
 
     #性能試験実施回数
     RUNTIMES=${2}
@@ -344,12 +344,26 @@ getlogs() {
 }
 
 #==============================================================================
+# 手順6 測定時間分処理を止めて計測を待つ
+#==============================================================================
+waitDuration() {
+    echo "[6] wait Duration"
+
+    # 実行時間分待つ
+    echo "    wait ${JMETER_DURATION} seconds ... "
+    sleep ${JMETER_DURATION}
+    echo "    done."
+
+}
+
+#==============================================================================
 # 手順6 jmeterのバッチ実行
 #==============================================================================
 jmeter() {
     echo "[6] invoke jmeter batch script"
 
     # MQリクエストを投げる速度が順々に上がっていってしまうので、時間を分けて投げる。
+    # 値は実行した際に一番グラフがきれいに見えた値を使用している。
     local JMETER_THREADS=100
     local EXECUTE_SECONDS=310
     local INTERVAL_SECONDS=80
@@ -392,19 +406,6 @@ jmeter() {
 }
 
 #==============================================================================
-# 手順6 測定時間分処理を止めて計測を待つ
-#==============================================================================
-waitDuration() {
-    echo "[6] wait Duration"
-
-    # 実行時間分待つ
-    echo "    sleep ${JMETER_DURATION} ... "
-    sleep ${JMETER_DURATION}
-    echo "    done."
-
-}
-
-#==============================================================================
 # 手順7 TOMCATの停止
 #   引数なし
 #==============================================================================
@@ -437,7 +438,7 @@ undeploy() {
 #==============================================================================
 stopActiveMQ() {
     echo "[9] stop ActiveMQ"
-    ssh ${ACTIVEMQ_IP} -l ${ROOT_USER} -p ${MQ_SSH_PORT} "systemctl stop activemq"
+    ssh ${ACTIVEMQ_IP} -l ${ACTIVEMQ_USER} -p ${MQ_SSH_PORT} "${ACTIVEMQ_HOME}/bin/activemq stop"
     sleep 10
     echo "    done."
 }
@@ -520,7 +521,7 @@ do
             deploy ${archive_no_ext}
             startTomcat ${archive_no_ext} ${concurrency}
             getlogs ${archive_no_ext}_${concurrency}_${cnt}
-            if [ "${PERFORMANCE_TYPE}" = "longTerm" ]; then
+            if [ "${ONGOING_REGISTER_DATA}" = "register" ]; then
                 jmeter
             else
                 waitDuration

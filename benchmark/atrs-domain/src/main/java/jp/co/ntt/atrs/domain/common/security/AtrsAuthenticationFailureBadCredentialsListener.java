@@ -17,15 +17,14 @@ import org.springframework.stereotype.Component;
  * @author NTT 電電太郎
  */
 @Component
-public class AtrsAuthenticationFailureBadCredentialsListener
-                                                            implements
-                                                            ApplicationListener<AuthenticationFailureBadCredentialsEvent> {
+public class AtrsAuthenticationFailureBadCredentialsListener implements
+                                                             ApplicationListener<AuthenticationFailureBadCredentialsEvent> {
 
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(AtrsAuthenticationFailureBadCredentialsListener.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(
+            AtrsAuthenticationFailureBadCredentialsListener.class);
 
     /**
      * {@inheritDoc}

@@ -17,9 +17,8 @@ import org.springframework.stereotype.Component;
  * @author NTT 電電太郎
  */
 @Component
-public class AtrsLogoutSucessListener
-                                     implements
-                                     ApplicationListener<AtrsLogoutSuccessEvent> {
+public class AtrsLogoutSucessListener implements
+                                      ApplicationListener<AtrsLogoutSuccessEvent> {
 
     /**
      * 会員ログアウトサービス。

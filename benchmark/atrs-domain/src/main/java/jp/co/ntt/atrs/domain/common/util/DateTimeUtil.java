@@ -37,8 +37,8 @@ public class DateTimeUtil {
      * @return 引数で指定された日付および時刻を保持するDateTimeオブジェクト
      */
     public static DateTime toDateTime(Date date, String timeString) {
-        return new LocalDate(date).toDateTime(DateTimeUtil
-                .toLocalTime(timeString));
+        return new LocalDate(date).toDateTime(DateTimeUtil.toLocalTime(
+                timeString));
     }
 
     /**

@@ -454,8 +454,8 @@
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_month" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">month</stringProp>
-            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.month&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot;(\s+)name=&quot;flightSearchCriteriaForm.month&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+            <stringProp name="RegexExtractor.template">$3$</stringProp>
             <stringProp name="RegexExtractor.default">nomonth</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
@@ -463,8 +463,8 @@
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_day" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">day</stringProp>
-            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.day&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot;(\s+)name=&quot;flightSearchCriteriaForm.day&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+            <stringProp name="RegexExtractor.template">$3$</stringProp>
             <stringProp name="RegexExtractor.default">noday</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
@@ -472,8 +472,8 @@
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_bordingClassCd" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">bordingClassCd</stringProp>
-            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.boardingClassCd&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.regex">&lt;input(\s+)type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.boardingClassCd&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+            <stringProp name="RegexExtractor.template">$3$</stringProp>
             <stringProp name="RegexExtractor.default">nobordingClassCd</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
@@ -1792,8 +1792,8 @@
             <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_month" enabled="true">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
               <stringProp name="RegexExtractor.refname">month</stringProp>
-              <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.month&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot;(\s+)name=&quot;flightSearchCriteriaForm.month&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$3$</stringProp>
               <stringProp name="RegexExtractor.default">nomonth</stringProp>
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
@@ -1801,8 +1801,8 @@
             <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_day" enabled="true">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
               <stringProp name="RegexExtractor.refname">day</stringProp>
-              <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.day&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot;(\s+)name=&quot;flightSearchCriteriaForm.day&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$3$</stringProp>
               <stringProp name="RegexExtractor.default">noday</stringProp>
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
@@ -1810,8 +1810,8 @@
             <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_bordingClassCd" enabled="true">
               <stringProp name="RegexExtractor.useHeaders">false</stringProp>
               <stringProp name="RegexExtractor.refname">bordingClassCd</stringProp>
-              <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.boardingClassCd&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.regex">&lt;input(\s+)type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.boardingClassCd&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+              <stringProp name="RegexExtractor.template">$3$</stringProp>
               <stringProp name="RegexExtractor.default">nobordingClassCd</stringProp>
               <stringProp name="RegexExtractor.match_number">1</stringProp>
             </RegexExtractor>
@@ -3894,8 +3894,8 @@
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_month" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">month</stringProp>
-            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.month&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot;(\s+)name=&quot;flightSearchCriteriaForm.month&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+            <stringProp name="RegexExtractor.template">$3$</stringProp>
             <stringProp name="RegexExtractor.default">nomonth</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
@@ -3903,8 +3903,8 @@
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_day" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">day</stringProp>
-            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.day&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot;(\s+)name=&quot;flightSearchCriteriaForm.day&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+            <stringProp name="RegexExtractor.template">$3$</stringProp>
             <stringProp name="RegexExtractor.default">noday</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>
@@ -3912,8 +3912,8 @@
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="get_bordingClassCd" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">false</stringProp>
             <stringProp name="RegexExtractor.refname">bordingClassCd</stringProp>
-            <stringProp name="RegexExtractor.regex">&lt;input type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.boardingClassCd&quot; value=&quot;(.*)&quot; /&gt;</stringProp>
-            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.regex">&lt;input(\s+)type=&quot;hidden&quot; name=&quot;flightSearchCriteriaForm.boardingClassCd&quot;(\s+)value=&quot;(.*)&quot; /&gt;</stringProp>
+            <stringProp name="RegexExtractor.template">$3$</stringProp>
             <stringProp name="RegexExtractor.default">nobordingClassCd</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
           </RegexExtractor>

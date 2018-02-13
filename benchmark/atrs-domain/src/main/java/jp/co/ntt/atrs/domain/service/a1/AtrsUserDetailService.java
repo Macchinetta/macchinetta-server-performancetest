@@ -29,8 +29,8 @@ public class AtrsUserDetailService implements UserDetailsService {
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(AtrsUserDetailService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(
+            AtrsUserDetailService.class);
 
     /**
      * メッセージプロパティ設定。
@@ -48,7 +48,8 @@ public class AtrsUserDetailService implements UserDetailsService {
      * {@inheritDoc}
      */
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetails loadUserByUsername(
+            String username) throws UsernameNotFoundException {
         Member member = memberRepository.findOneForLogin(username);
         if (member == null) {
             if (LOGGER.isInfoEnabled()) {

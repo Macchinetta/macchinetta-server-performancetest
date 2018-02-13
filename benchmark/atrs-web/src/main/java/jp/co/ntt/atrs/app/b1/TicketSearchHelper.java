@@ -122,8 +122,8 @@ public class TicketSearchHelper {
         flightSearchFormOutputDto.setDefaultDay(sysDate.getDayOfMonth());
         flightSearchFormOutputDto.setDefaultDepAirportCd(defaultDepAirportCd);
         flightSearchFormOutputDto.setDefaultArrAirportCd(defaultArrAirportCd);
-        flightSearchFormOutputDto
-                .setDefaultBoardingClassCd(defaultBoardingClassCd);
+        flightSearchFormOutputDto.setDefaultBoardingClassCd(
+                defaultBoardingClassCd);
         flightSearchFormOutputDto.setDefaultTime(defaultTime);
         flightSearchFormOutputDto.setBeginningPeriod(dateFactory.newDate());
         flightSearchFormOutputDto.setEndingPeriod(ticketSharedService
@@ -139,7 +139,8 @@ public class TicketSearchHelper {
      * @throws BusinessException 業務例外
      */
     public FlightSearchResultOutputDto searchFlight(
-            TicketSearchForm ticketSearchForm, Pageable pageable) throws BusinessException {
+            TicketSearchForm ticketSearchForm,
+            Pageable pageable) throws BusinessException {
 
         FlightSearchCriteriaForm flightSearchCriteriaForm = ticketSearchForm
                 .getFlightSearchCriteriaForm();
@@ -161,7 +162,8 @@ public class TicketSearchHelper {
                 .searchFlight(ticketSearchCriteriaDto, pageable);
 
         // 往路を検索する場合、検索条件を退避する。
-        if (CollectionUtils.isEmpty(ticketSearchForm.getSelectFlightFormList())) {
+        if (CollectionUtils.isEmpty(ticketSearchForm
+                .getSelectFlightFormList())) {
             ticketSearchForm.setOutwardLineSearchCriteriaForm(ticketSearchForm
                     .getFlightSearchCriteriaForm());
         }
@@ -187,17 +189,17 @@ public class TicketSearchHelper {
         FlightSearchResultOutputDto flightSearchResultOutputDto = new FlightSearchResultOutputDto();
 
         // 空席照会の検索結果を設定する。
-        flightSearchResultOutputDto
-                .setTicketSearchResultDto(ticketSearchResultDto);
+        flightSearchResultOutputDto.setTicketSearchResultDto(
+                ticketSearchResultDto);
 
         // 逆の搭乗クラスを設定する。
         if (BoardingClassCd.N.equals(flightSearchCriteriaForm
                 .getBoardingClassCd())) {
-            flightSearchResultOutputDto
-                    .setOtherBoardingClassCd(BoardingClassCd.S);
+            flightSearchResultOutputDto.setOtherBoardingClassCd(
+                    BoardingClassCd.S);
         } else {
-            flightSearchResultOutputDto
-                    .setOtherBoardingClassCd(BoardingClassCd.N);
+            flightSearchResultOutputDto.setOtherBoardingClassCd(
+                    BoardingClassCd.N);
         }
 
         // 搭乗日を設定する。
@@ -225,8 +227,8 @@ public class TicketSearchHelper {
             flightSearchResultOutputDto.setDayOfNextDate(nextDate
                     .getDayOfMonth());
         }
-        flightSearchResultOutputDto
-                .setIsDepDateBeforeLimitDate(isDepDateBeforeLimitDate);
+        flightSearchResultOutputDto.setIsDepDateBeforeLimitDate(
+                isDepDateBeforeLimitDate);
 
         return flightSearchResultOutputDto;
     }

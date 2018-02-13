@@ -49,8 +49,8 @@ public class MemberRegisterValidator implements Validator {
         String password = form.getPassword();
         String reEnterPassword = form.getReEnterPassword();
 
-        if (StringUtils.hasLength(password)
-                && StringUtils.hasLength(reEnterPassword)) {
+        if (StringUtils.hasLength(password) && StringUtils.hasLength(
+                reEnterPassword)) {
             if (!password.equals(reEnterPassword)) {
 
                 // パスワードと再入力したパスワードが違う場合エラー
@@ -60,8 +60,8 @@ public class MemberRegisterValidator implements Validator {
 
         try {
             errors.pushNestedPath("memberForm");
-            ValidationUtils
-                    .invokeValidator(memberValidator, memberForm, errors);
+            ValidationUtils.invokeValidator(memberValidator, memberForm,
+                    errors);
         } finally {
             errors.popNestedPath();
         }

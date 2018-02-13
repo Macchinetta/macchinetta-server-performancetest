@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- for performance test environment on JBOSS server -->
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jee="http://www.springframework.org/schema/jee"
-    xmlns:tx="http://www.springframework.org/schema/tx"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
   xsi:schemaLocation="
     http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee.xsd
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    
-    <!-- JBOSS 用datasource設定 -->
-    <jee:jndi-lookup id="dataSource" jndi-name="java:/jdbc/AswDS" />
-    <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
-    
-    <!-- 性能試験用に日付を固定 -->
-    <bean id="dateFactory" class="jp.co.ntt.atrs.domain.common.util.FixedDateFactory">
-        <property name="year" value="2013" />
-        <property name="month" value="11" />
-        <property name="dayOfMonth" value="1" />
-        <property name="hour" value="10" />
-        <property name="minute" value="0" />
-    </bean>
-    
+
+  <!-- JBOSS 用datasource設定 -->
+  <jee:jndi-lookup id="dataSource" jndi-name="java:/jdbc/AswDS" />
+  <bean id="transactionManager" class="org.springframework.transaction.jta.JtaTransactionManager" />
+
+  <!-- 性能試験用に日付を固定 -->
+  <bean id="dateFactory" class="jp.co.ntt.atrs.domain.common.util.FixedDateFactory">
+    <property name="year" value="2013" />
+    <property name="month" value="11" />
+    <property name="dayOfMonth" value="1" />
+    <property name="hour" value="10" />
+    <property name="minute" value="0" />
+  </bean>
+
 </beans>

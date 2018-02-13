@@ -10,8 +10,8 @@ import org.springframework.util.ErrorHandler;
 
 public class JmsErrorHandler implements ErrorHandler {
 
-    private static final Logger log = LoggerFactory
-            .getLogger(JmsErrorHandler.class);
+    private static final Logger log = LoggerFactory.getLogger(
+            JmsErrorHandler.class);
 
     @Override
     public void handleError(Throwable t) {

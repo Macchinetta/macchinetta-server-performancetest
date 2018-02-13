@@ -3,23 +3,12 @@
 <!-- this file should be place at CATALINA_HOME/conf/Catalina/localhost/atrs.xml -->
 <Context>
 
-    <Resource
-       name="jdbc/AtrsDS" 
-       type="javax.sql.DataSource"
-       driverClassName="org.postgresql.Driver"
-       username="asw_perf"
-       password="asw_perf"
-       url="jdbc:postgresql://192.168.10.14:54323/ASW_PERF"
-       maxWait="5000"
-       initialSize="100"
-       minIdle="100"
-       maxIdle="100"
-       maxActive="100"
-       />
-       
+  <Resource name="jdbc/AtrsDS" type="javax.sql.DataSource" driverClassName="org.postgresql.Driver"
+    username="asw_perf" password="asw_perf" url="jdbc:postgresql://192.168.10.14:54323/ASW_PERF"
+    maxWait="5000" initialSize="100" minIdle="100" maxIdle="100" maxActive="100" />
 
-     <Loader className="org.apache.catalina.loader.VirtualWebappLoader"
-         virtualClasspath="/tmp/atrs-env/*.jar" />
-     <JarScanner scanAllDirectories="true" />
+
+  <Loader className="org.apache.catalina.loader.VirtualWebappLoader" virtualClasspath="/tmp/atrs-env/*.jar" />
+  <JarScanner scanAllDirectories="true" />
 
 </Context>

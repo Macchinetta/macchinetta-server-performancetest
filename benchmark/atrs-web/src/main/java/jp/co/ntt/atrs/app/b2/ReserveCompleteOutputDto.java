@@ -103,7 +103,8 @@ public class ReserveCompleteOutputDto implements Serializable {
      * 選択したフライト情報リストを設定する。
      * @param selectFlightDtoList 選択したフライト情報リスト
      */
-    public void setSelectFlightDtoList(List<SelectFlightDto> selectFlightDtoList) {
+    public void setSelectFlightDtoList(
+            List<SelectFlightDto> selectFlightDtoList) {
         this.selectFlightDtoList = selectFlightDtoList;
     }
 

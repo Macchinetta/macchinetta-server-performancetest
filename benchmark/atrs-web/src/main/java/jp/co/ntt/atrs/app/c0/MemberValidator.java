@@ -49,8 +49,8 @@ public class MemberValidator implements Validator {
         }
 
         // 電話番号チェック
-        if (StringUtils.hasLength(memberForm.getTel1())
-                && StringUtils.hasLength(memberForm.getTel2())) {
+        if (StringUtils.hasLength(memberForm.getTel1()) && StringUtils
+                .hasLength(memberForm.getTel2())) {
 
             if (!ValidationUtil.isValidTelNum(memberForm.getTel1(), memberForm
                     .getTel2())) {
@@ -60,17 +60,16 @@ public class MemberValidator implements Validator {
         }
 
         // 生年月日の日付チェックする。
-        if (memberForm.getMonthOfBirth() != null
-                && memberForm.getDayOfBirth() != null
-                && memberForm.getYearOfBirth() != null) {
+        if (memberForm.getMonthOfBirth() != null && memberForm
+                .getDayOfBirth() != null && memberForm
+                        .getYearOfBirth() != null) {
             Integer birthYear = memberForm.getYearOfBirth();
             Integer birthMonth = memberForm.getMonthOfBirth();
             Integer birthDay = memberForm.getDayOfBirth();
             if (!DateTimeUtil.isValidDate(birthYear, birthMonth, birthDay)) {
-                errors.rejectValue(
-                        "dayOfBirth",
-                        CommonErrorCode.E_AR_FW_5001.code(),
-                        new Object[] { new DefaultMessageSourceResolvable("memberForm.dayOfBirth") },
+                errors.rejectValue("dayOfBirth", CommonErrorCode.E_AR_FW_5001
+                        .code(), new Object[] {
+                                new DefaultMessageSourceResolvable("memberForm.dayOfBirth") },
                         null);
             }
         }

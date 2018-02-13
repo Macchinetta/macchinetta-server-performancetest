@@ -35,11 +35,12 @@ public class AtrsLogoutSuccessHandler extends SimpleUrlLogoutSuccessHandler {
      */
     @Override
     public void onLogoutSuccess(HttpServletRequest request,
-            HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
+            HttpServletResponse response,
+            Authentication authentication) throws IOException, ServletException {
         if (authentication != null) {
             // ログアウト成功イベントを発行する。
-            eventPublisher
-                    .publishEvent(new AtrsLogoutSuccessEvent(authentication));
+            eventPublisher.publishEvent(
+                    new AtrsLogoutSuccessEvent(authentication));
         }
         super.handle(request, response, authentication);
     }

@@ -24,15 +24,16 @@ public class AccessLogFilter extends OncePerRequestFilter {
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory
-            .getLogger(AccessLogFilter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(
+            AccessLogFilter.class);
 
     /**
      * {@inheritDoc}
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-            HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+            HttpServletResponse response,
+            FilterChain filterChain) throws ServletException, IOException {
 
         String logMessage = getLogMessage(request);
         LOGGER.info("ACCESS START {}", logMessage);
@@ -73,7 +74,8 @@ public class AccessLogFilter extends OncePerRequestFilter {
      * {@inheritDoc}
      */
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+    protected boolean shouldNotFilter(
+            HttpServletRequest request) throws ServletException {
         if (!LOGGER.isInfoEnabled()) {
             return true;
         }

@@ -138,7 +138,8 @@ public class FlightSearchFormOutputDto implements Serializable {
      * デフォルト搭乗クラスコードを設定する。
      * @param defaultBoardingClassCd
      */
-    public void setDefaultBoardingClassCd(BoardingClassCd defaultBoardingClassCd) {
+    public void setDefaultBoardingClassCd(
+            BoardingClassCd defaultBoardingClassCd) {
         this.defaultBoardingClassCd = defaultBoardingClassCd;
     }
 

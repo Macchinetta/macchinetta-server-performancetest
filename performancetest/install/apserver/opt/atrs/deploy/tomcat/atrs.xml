@@ -9,7 +9,7 @@
        driverClassName="org.postgresql.Driver"
        username="postgres"
        password="postgres"
-       url="jdbc:postgresql://X.X.X.X:25432/atrs"
+       url="jdbc:postgresql://10.0.2.2:25432/atrs"
        maxWait="5000"
        initialSize="100"
        minIdle="100"

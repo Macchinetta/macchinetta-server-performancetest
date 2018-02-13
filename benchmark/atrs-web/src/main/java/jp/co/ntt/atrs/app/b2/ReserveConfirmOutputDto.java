@@ -54,7 +54,8 @@ public class ReserveConfirmOutputDto {
      * 選択したフライト情報リスト を設定する。
      * @param selectFlightDtoList 選択したフライト情報リスト
      */
-    public void setSelectFlightDtoList(List<SelectFlightDto> selectFlightDtoList) {
+    public void setSelectFlightDtoList(
+            List<SelectFlightDto> selectFlightDtoList) {
         this.selectFlightDtoList = selectFlightDtoList;
     }
 
