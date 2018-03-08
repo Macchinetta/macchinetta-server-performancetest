@@ -1,5 +1,18 @@
 /*
- * Copyright(c) 2014-2017 NTT Corporation.
+ * Copyright 2014-2018 NTT Corporation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 package jp.co.ntt.atrs.app.b2;
 
@@ -132,7 +145,8 @@ public class TicketReserveHelper {
         // 予約チケットの合計金額を取得する
         int totalFare = calculateTotalFare(flightList, reservation);
 
-        List<SelectFlightDto> selectFlightDtoList = createSelectFlightDtoList(flightList);
+        List<SelectFlightDto> selectFlightDtoList = createSelectFlightDtoList(
+                flightList);
 
         // 画面出力DTOを作成する。
         ReserveConfirmOutputDto reserveConfirmOutputDto = new ReserveConfirmOutputDto();
@@ -170,7 +184,8 @@ public class TicketReserveHelper {
         TicketReserveDto ticketReserveDto = ticketReserveService
                 .registerReservation(reservation);
 
-        List<SelectFlightDto> selectFlightDtoList = createSelectFlightDtoList(flightList);
+        List<SelectFlightDto> selectFlightDtoList = createSelectFlightDtoList(
+                flightList);
 
         // 出力DTOを作成する。
         ReserveCompleteOutputDto reserveCompleteOutputDto = new ReserveCompleteOutputDto();
@@ -216,7 +231,7 @@ public class TicketReserveHelper {
 
             int baseFare = ticketSharedService.calculateBasicFare(route
                     .getBasicFare(), boardingClass.getBoardingClassCd(), flight
-                    .getDepartureDate());
+                            .getDepartureDate());
             int fare = ticketSharedService.calculateFare(baseFare, fareType
                     .getDiscountRate());
             selectFlight.setFare(fare);
@@ -279,8 +294,8 @@ public class TicketReserveHelper {
      */
     public List<Flight> createFlightList(
             List<SelectFlightForm> selectFlightFormList) {
-        List<Flight> flightList = ticketHelper
-                .createFlightList(selectFlightFormList);
+        List<Flight> flightList = ticketHelper.createFlightList(
+                selectFlightFormList);
         // 改竄チェック
         try {
             ticketHelper.validateFlightList(flightList);
@@ -352,9 +367,8 @@ public class TicketReserveHelper {
     private Reservation formToReservation(ReservationForm reservationForm) {
         Reservation reservation = new Reservation();
         beanMapper.map(reservationForm, reservation);
-        String repTel = reservationForm.getRepTel1() + "-"
-                + reservationForm.getRepTel2() + "-"
-                + reservationForm.getRepTel3();
+        String repTel = reservationForm.getRepTel1() + "-" + reservationForm
+                .getRepTel2() + "-" + reservationForm.getRepTel3();
         reservation.setRepTel(repTel);
         return reservation;
     }
@@ -368,8 +382,8 @@ public class TicketReserveHelper {
     private int calculateTotalFare(List<Flight> flightList,
             Reservation reservation) {
         ReserveFlight reserveFlight = reservation.getReserveFlightList().get(0);
-        return ticketReserveService.calculateTotalFare(flightList,
-                reserveFlight.getPassengerList());
+        return ticketReserveService.calculateTotalFare(flightList, reserveFlight
+                .getPassengerList());
     }
 
     /**
@@ -395,7 +409,8 @@ public class TicketReserveHelper {
      * 搭乗者情報リストから、入力値が1つもない搭乗者情報を削除する。
      * @param passengerFormList 搭乗者情報リスト
      */
-    private void preparePassengerFormList(List<PassengerForm> passengerFormList) {
+    private void preparePassengerFormList(
+            List<PassengerForm> passengerFormList) {
 
         // 全未入力の搭乗者情報を削除する。
         Iterator<PassengerForm> iterator = passengerFormList.iterator();
@@ -403,9 +418,9 @@ public class TicketReserveHelper {
             PassengerForm passengerform = iterator.next();
             if (StringUtils.isEmpty(passengerform.getFamilyName())
                     && StringUtils.isEmpty(passengerform.getGivenName())
-                    && passengerform.getAge() == null
-                    && passengerform.getGender() == null
-                    && StringUtils.isEmpty(passengerform.getCustomerNo())) {
+                    && passengerform.getAge() == null && passengerform
+                            .getGender() == null && StringUtils.isEmpty(
+                                    passengerform.getCustomerNo())) {
                 iterator.remove();
             }
         }

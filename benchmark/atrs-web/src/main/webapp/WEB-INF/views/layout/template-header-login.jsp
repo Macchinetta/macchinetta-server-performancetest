@@ -2,6 +2,6 @@
 <security:authorize access="!hasRole('MEMBER')">
   <tiles:insertAttribute name="loginForm" />
 </security:authorize>
-<security:authorize access="hasRole('MEMBER')" >
+<security:authorize access="hasRole('MEMBER')">
   <tiles:insertAttribute name="memberInfo" />
 </security:authorize>

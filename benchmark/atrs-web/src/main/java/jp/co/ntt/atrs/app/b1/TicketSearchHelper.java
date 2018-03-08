@@ -1,5 +1,18 @@
 /*
- * Copyright(c) 2014-2017 NTT Corporation.
+ * Copyright 2014-2018 NTT Corporation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 package jp.co.ntt.atrs.app.b1;
 
@@ -122,8 +135,8 @@ public class TicketSearchHelper {
         flightSearchFormOutputDto.setDefaultDay(sysDate.getDayOfMonth());
         flightSearchFormOutputDto.setDefaultDepAirportCd(defaultDepAirportCd);
         flightSearchFormOutputDto.setDefaultArrAirportCd(defaultArrAirportCd);
-        flightSearchFormOutputDto
-                .setDefaultBoardingClassCd(defaultBoardingClassCd);
+        flightSearchFormOutputDto.setDefaultBoardingClassCd(
+                defaultBoardingClassCd);
         flightSearchFormOutputDto.setDefaultTime(defaultTime);
         flightSearchFormOutputDto.setBeginningPeriod(dateFactory.newDate());
         flightSearchFormOutputDto.setEndingPeriod(ticketSharedService
@@ -139,7 +152,8 @@ public class TicketSearchHelper {
      * @throws BusinessException 業務例外
      */
     public FlightSearchResultOutputDto searchFlight(
-            TicketSearchForm ticketSearchForm, Pageable pageable) throws BusinessException {
+            TicketSearchForm ticketSearchForm,
+            Pageable pageable) throws BusinessException {
 
         FlightSearchCriteriaForm flightSearchCriteriaForm = ticketSearchForm
                 .getFlightSearchCriteriaForm();
@@ -161,7 +175,8 @@ public class TicketSearchHelper {
                 .searchFlight(ticketSearchCriteriaDto, pageable);
 
         // 往路を検索する場合、検索条件を退避する。
-        if (CollectionUtils.isEmpty(ticketSearchForm.getSelectFlightFormList())) {
+        if (CollectionUtils.isEmpty(ticketSearchForm
+                .getSelectFlightFormList())) {
             ticketSearchForm.setOutwardLineSearchCriteriaForm(ticketSearchForm
                     .getFlightSearchCriteriaForm());
         }
@@ -187,17 +202,17 @@ public class TicketSearchHelper {
         FlightSearchResultOutputDto flightSearchResultOutputDto = new FlightSearchResultOutputDto();
 
         // 空席照会の検索結果を設定する。
-        flightSearchResultOutputDto
-                .setTicketSearchResultDto(ticketSearchResultDto);
+        flightSearchResultOutputDto.setTicketSearchResultDto(
+                ticketSearchResultDto);
 
         // 逆の搭乗クラスを設定する。
         if (BoardingClassCd.N.equals(flightSearchCriteriaForm
                 .getBoardingClassCd())) {
-            flightSearchResultOutputDto
-                    .setOtherBoardingClassCd(BoardingClassCd.S);
+            flightSearchResultOutputDto.setOtherBoardingClassCd(
+                    BoardingClassCd.S);
         } else {
-            flightSearchResultOutputDto
-                    .setOtherBoardingClassCd(BoardingClassCd.N);
+            flightSearchResultOutputDto.setOtherBoardingClassCd(
+                    BoardingClassCd.N);
         }
 
         // 搭乗日を設定する。
@@ -225,8 +240,8 @@ public class TicketSearchHelper {
             flightSearchResultOutputDto.setDayOfNextDate(nextDate
                     .getDayOfMonth());
         }
-        flightSearchResultOutputDto
-                .setIsDepDateBeforeLimitDate(isDepDateBeforeLimitDate);
+        flightSearchResultOutputDto.setIsDepDateBeforeLimitDate(
+                isDepDateBeforeLimitDate);
 
         return flightSearchResultOutputDto;
     }

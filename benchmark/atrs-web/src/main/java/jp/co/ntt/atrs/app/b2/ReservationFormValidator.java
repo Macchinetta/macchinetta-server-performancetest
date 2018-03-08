@@ -1,5 +1,18 @@
 /*
- * Copyright(c) 2014-2017 NTT Corporation.
+ * Copyright 2014-2018 NTT Corporation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 package jp.co.ntt.atrs.app.b2;
 
@@ -49,8 +62,8 @@ public class ReservationFormValidator implements Validator {
         ReservationForm reservationForm = (ReservationForm) target;
 
         // 予約代表者情報入力値の相関チェックを行う。
-        if (!(errors.hasFieldErrors("repTel1") || errors
-                .hasFieldErrors("repTel2"))) {
+        if (!(errors.hasFieldErrors("repTel1") || errors.hasFieldErrors(
+                "repTel2"))) {
             checkRepresentativeTel(errors, reservationForm.getRepTel1(),
                     reservationForm.getRepTel2());
         }
@@ -67,9 +80,9 @@ public class ReservationFormValidator implements Validator {
             Gender gender = passengerForm.getGender();
             String customerNo = passengerForm.getCustomerNo();
 
-            if (StringUtils.hasLength(familyName)
-                    || StringUtils.hasLength(givenName) || age != null
-                    || gender != null || StringUtils.hasLength(customerNo)) {
+            if (StringUtils.hasLength(familyName) || StringUtils.hasLength(
+                    givenName) || age != null || gender != null || StringUtils
+                            .hasLength(customerNo)) {
                 inputtedPassengerCount++;
                 checkRequired(errors, "familyName", i);
                 checkRequired(errors, "givenName", i);
@@ -91,15 +104,16 @@ public class ReservationFormValidator implements Validator {
      * @param tel1 予約代表者電話番号1
      * @param tel2 予約代表者電話番号2
      */
-    private void checkRepresentativeTel(Errors errors, String tel1, String tel2) {
+    private void checkRepresentativeTel(Errors errors, String tel1,
+            String tel2) {
         if (!ValidationUtil.isValidTelNum(tel1, tel2)) {
             Object[] errorArgs = new Object[] {
                     new DefaultMessageSourceResolvable("reservationForm.repTel1"),
                     new DefaultMessageSourceResolvable("reservationForm.repTel2"),
                     ValidationUtil.TEL1_AND_TEL2_MIN_LENGTH,
                     ValidationUtil.TEL1_AND_TEL2_MAX_LENGTH };
-            errors.reject(TicketReserveErrorCode.E_AR_B2_5002.code(),
-                    errorArgs, "");
+            errors.reject(TicketReserveErrorCode.E_AR_B2_5002.code(), errorArgs,
+                    "");
         }
     }
 
@@ -113,13 +127,9 @@ public class ReservationFormValidator implements Validator {
 
         String target = "passengerFormList[" + index + "]." + itemName;
 
-        ValidationUtils
-                .rejectIfEmpty(
-                        errors,
-                        target,
-                        "NotNull",
-                        new Object[] { new DefaultMessageSourceResolvable("reservationForm."
-                                + target) });
+        ValidationUtils.rejectIfEmpty(errors, target, "NotNull", new Object[] {
+                new DefaultMessageSourceResolvable("reservationForm."
+                        + target) });
     }
 
 }

@@ -1,51 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
- xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:context="http://www.springframework.org/schema/context"
-    xmlns:tx="http://www.springframework.org/schema/tx"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:component-scan base-package="jp.co.ntt.atrs.domain" />
-    <tx:annotation-driven/>
-    <import resource="classpath:META-INF/spring/atrs-infra.xml"/>
-    <import resource="classpath:/META-INF/spring/atrs-codelist.xml" />
+  <context:component-scan base-package="jp.co.ntt.atrs.domain" />
+  <tx:annotation-driven />
+  <import resource="classpath:META-INF/spring/atrs-infra.xml" />
+  <import resource="classpath:/META-INF/spring/atrs-codelist.xml" />
 
-    <bean id="messageSource"
-        class="org.springframework.context.support.ResourceBundleMessageSource">
-        <property name="basenames">
-            <list>
-                <value>i18n/atrs-messages</value>
-                <value>i18n/atrs-fields</value>
-            </list>
-        </property>
-    </bean>
-    
-    <bean id="resultMessagesLoggingInterceptor"
-        class="org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor">
-        <property name="exceptionLogger" ref="exceptionLogger" />
-    </bean>
-    
-    <aop:config>
-        <aop:advisor advice-ref="resultMessagesLoggingInterceptor"
-            pointcut="@within(org.springframework.stereotype.Service)" />
-    </aop:config>
+  <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+    <property name="basenames">
+      <list>
+        <value>i18n/atrs-messages</value>
+        <value>i18n/atrs-fields</value>
+      </list>
+    </property>
+  </bean>
 
-    <bean id="jmsTransactionManager"
-        class="org.springframework.jms.connection.JmsTransactionManager">
-        <property name="connectionFactory" ref="targetConnectionFactory" />
-    </bean>
+  <bean id="resultMessagesLoggingInterceptor" class="org.terasoluna.gfw.common.exception.ResultMessagesLoggingInterceptor">
+    <property name="exceptionLogger" ref="exceptionLogger" />
+  </bean>
 
-    <bean id="chainedTransactionManager"
-        class="org.springframework.data.transaction.ChainedTransactionManager"
-        primary="true">
-        <constructor-arg>
-            <list>
-                <ref bean="jmsTransactionManager" />
-                <ref bean="transactionManager" />
-            </list>
-        </constructor-arg>
-    </bean>
+  <aop:config>
+    <aop:advisor advice-ref="resultMessagesLoggingInterceptor" pointcut="@within(org.springframework.stereotype.Service)" />
+  </aop:config>
+
+  <bean id="jmsTransactionManager" class="org.springframework.jms.connection.JmsTransactionManager">
+    <property name="connectionFactory" ref="targetConnectionFactory" />
+  </bean>
+
+  <bean id="chainedTransactionManager" class="org.springframework.data.transaction.ChainedTransactionManager"
+    primary="true">
+    <constructor-arg>
+      <list>
+        <ref bean="jmsTransactionManager" />
+        <ref bean="transactionManager" />
+      </list>
+    </constructor-arg>
+  </bean>
 </beans>

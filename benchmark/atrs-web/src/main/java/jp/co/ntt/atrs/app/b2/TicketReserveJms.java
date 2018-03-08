@@ -1,5 +1,18 @@
 /*
- * Copyright(c) 2014-2017 NTT Corporation.
+ * Copyright 2014-2018 NTT Corporation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
  */
 package jp.co.ntt.atrs.app.b2;
 
@@ -44,18 +57,18 @@ public class TicketReserveJms {
     public ReserveCompleteOutputDto registerReservationJms(JmsInput jmsInput) {
 
         TicketSearchForm ticketSearchForm = new TicketSearchForm();
-        ticketSearchForm.getFlightSearchCriteriaForm().setMonth(
-                jmsInput.getMonth());
-        ticketSearchForm.getFlightSearchCriteriaForm()
-                .setDay(jmsInput.getDay());
-        ticketSearchForm.getFlightSearchCriteriaForm().setTime(
-                jmsInput.getTime());
+        ticketSearchForm.getFlightSearchCriteriaForm().setMonth(jmsInput
+                .getMonth());
+        ticketSearchForm.getFlightSearchCriteriaForm().setDay(jmsInput
+                .getDay());
+        ticketSearchForm.getFlightSearchCriteriaForm().setTime(jmsInput
+                .getTime());
         ticketSearchForm.getFlightSearchCriteriaForm().setBoardingClassCd(
                 jmsInput.getBoardingClassCd());
-        ticketSearchForm.getFlightSearchCriteriaForm().setDepAirportCd(
-                jmsInput.getDepAirportCd());
-        ticketSearchForm.getFlightSearchCriteriaForm().setArrAirportCd(
-                jmsInput.getArrAirportCd());
+        ticketSearchForm.getFlightSearchCriteriaForm().setDepAirportCd(jmsInput
+                .getDepAirportCd());
+        ticketSearchForm.getFlightSearchCriteriaForm().setArrAirportCd(jmsInput
+                .getArrAirportCd());
 
         Pageable pageable = new PageRequest(0, 1000);
         FlightSearchResultOutputDto flightSearchResultOutputDto = ticketSearchHelper
@@ -74,11 +87,11 @@ public class TicketReserveJms {
         List<SelectFlightForm> selectFlightFormList = new ArrayList<SelectFlightForm>();
         selectFlightFormList.add(selectFlightForm);
 
-        List<Flight> flightList = ticketReserveHelper
-                .createFlightList(selectFlightFormList);
+        List<Flight> flightList = ticketReserveHelper.createFlightList(
+                selectFlightFormList);
 
-        return ticketReserveHelper.reserveJms(ticketReserveService
-                .findMember(jmsInput.getCustomerNo()), flightList);
+        return ticketReserveHelper.reserveJms(ticketReserveService.findMember(
+                jmsInput.getCustomerNo()), flightList);
     }
 
 }

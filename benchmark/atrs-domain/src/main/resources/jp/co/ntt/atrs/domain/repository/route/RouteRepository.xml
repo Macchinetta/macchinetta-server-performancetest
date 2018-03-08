@@ -4,29 +4,31 @@
 <mapper namespace="jp.co.ntt.atrs.domain.repository.route.RouteRepository">
 
   <resultMap id="route-map" type="Route">
-    <id property="routeNo" column="route_no"/>
-    <result property="basicFare" column="basic_fare"/>
-    <result property="departureAirport.code" column="dep_airport_cd"/>
-    <result property="departureAirport.name" column="dep_airport_name"/>
-    <result property="arrivalAirport.code" column="aar_airport_cd"/>
-    <result property="arrivalAirport.name" column="aar_airport_name"/>
+    <id property="routeNo" column="route_no" />
+    <result property="basicFare" column="basic_fare" />
+    <result property="departureAirport.code" column="dep_airport_cd" />
+    <result property="departureAirport.name" column="dep_airport_name" />
+    <result property="arrivalAirport.code" column="aar_airport_cd" />
+    <result property="arrivalAirport.name" column="aar_airport_name" />
   </resultMap>
 
   <!-- 区間情報の全件取得 -->
   <select id="findAll" resultMap="route-map">
     SELECT
-        r.route_no AS route_no,
-        r.basic_fare AS basic_fare,
-        a_dep.airport_cd AS dep_airport_cd,
-        a_dep.airport_name AS dep_airport_name,
-        a_arr.airport_cd AS aar_airport_cd,
-        a_arr.airport_name AS aar_airport_name
+    r.route_no AS route_no,
+    r.basic_fare AS basic_fare,
+    a_dep.airport_cd AS dep_airport_cd,
+    a_dep.airport_name AS dep_airport_name,
+    a_arr.airport_cd AS
+    aar_airport_cd,
+    a_arr.airport_name AS aar_airport_name
     FROM
-        route r
-        JOIN airport a_dep
-            ON r.dep_airport_cd = a_dep.airport_cd
-        JOIN airport a_arr
-            ON r.arr_airport_cd = a_arr.airport_cd
+    route r
+    JOIN airport a_dep
+    ON
+    r.dep_airport_cd = a_dep.airport_cd
+    JOIN airport a_arr
+    ON r.arr_airport_cd = a_arr.airport_cd
   </select>
 
 </mapper>

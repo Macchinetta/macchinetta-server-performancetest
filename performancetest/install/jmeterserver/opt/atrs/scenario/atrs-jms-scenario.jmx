@@ -25,12 +25,12 @@
           </elementProp>
           <elementProp name="IPADDR" elementType="Argument">
             <stringProp name="Argument.name">IPADDR</stringProp>
-            <stringProp name="Argument.value">${__P(ipaddr,localhost)}</stringProp>
+            <stringProp name="Argument.value">${__P(ipaddr,127.0.0.1)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="PORT" elementType="Argument">
             <stringProp name="Argument.name">PORT</stringProp>
-            <stringProp name="Argument.value">${__P(port, 19900)}</stringProp>
+            <stringProp name="Argument.value">${__P(port, 61616)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="PARAMETER_PATH" elementType="Argument">

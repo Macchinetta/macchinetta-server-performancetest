@@ -2,24 +2,23 @@
 <html>
 
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <tilesx:useAttribute id="csslist" name="css" classname="java.util.List" />
-  <c:forEach var="item" items="${csslist}">
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/${item}.css" />
-  </c:forEach>
-  <title>
-    <tiles:insertAttribute name="title" />
-  </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<tilesx:useAttribute id="csslist" name="css" classname="java.util.List" />
+<c:forEach var="item" items="${csslist}">
+  <link rel="stylesheet" type="text/css"
+    href="${pageContext.request.contextPath}/resources/css/${item}.css" />
+</c:forEach>
+<title><tiles:insertAttribute name="title" /></title>
 </head>
 
 <body>
   <div id="container">
-    <div id="main"> 
+    <div id="main">
 
       <%-- ここからヘッダ --%>
       <div id="header">
-         <div id="header-logo">
-            <img alt="" src="${pageContext.request.contextPath}/resources/image/logo.jpg">
+        <div id="header-logo">
+          <img alt="" src="${pageContext.request.contextPath}/resources/image/logo.jpg">
         </div>
         <div id="header-content">
           <div id="header-login">
@@ -28,7 +27,7 @@
           <div id="header-menu">
             <tiles:insertAttribute name="header-menu" />
           </div>
-        </div> 
+        </div>
       </div>
       <%-- ヘッダここまで --%>
 
