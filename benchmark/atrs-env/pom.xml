@@ -4,7 +4,7 @@
   <parent>
     <artifactId>atrs</artifactId>
     <groupId>jp.co.ntt.atrs</groupId>
-    <version>1.5.1.RELEASE</version>
+    <version>1.6.0.RELEASE</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>atrs-env</artifactId>
@@ -72,6 +72,13 @@
       <properties>
         <resource.directory>${basedir}/configs/performance-test-tomcat85-postgresql/resources</resource.directory>
         <buildFinalName>${project.artifactId}-${project.version}-performance-test-tomcat85-postgresql</buildFinalName>
+      </properties>
+    </profile>
+    <profile>
+      <id>performance-test-tomcat9-postgresql</id>
+      <properties>
+        <resource.directory>${basedir}/configs/performance-test-tomcat9-postgresql/resources</resource.directory>
+        <buildFinalName>${project.artifactId}-${project.version}-performance-test-tomcat9-postgresql</buildFinalName>
       </properties>
     </profile>
     <profile>
