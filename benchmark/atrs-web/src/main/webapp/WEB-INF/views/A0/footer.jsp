@@ -1,1 +1,1 @@
-<p>Copyright(c) 2014 NTT Corporation.</p>
+<p>Copyright(c) 2015 NTT Corporation.</p>
