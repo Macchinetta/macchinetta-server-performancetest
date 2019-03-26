@@ -438,7 +438,7 @@ undeploy() {
 #==============================================================================
 stopActiveMQ() {
     echo "[9] stop ActiveMQ"
-    ssh ${ACTIVEMQ_IP} -l ${ACTIVEMQ_USER} -p ${MQ_SSH_PORT} "${ACTIVEMQ_HOME}/bin/activemq stop"
+    ssh ${ACTIVEMQ_IP} -l ${ACTIVEMQ_USER} -p ${MQ_SSH_PORT} "cp /var/log/atrs/gc_log/gc.txt /var/log/atrs/gc_log/gc_backup.txt; ${ACTIVEMQ_HOME}/bin/activemq stop"
     sleep 10
     echo "    done."
 }
