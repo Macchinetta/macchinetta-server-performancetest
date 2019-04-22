@@ -1,11 +1,11 @@
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:sec="http://www.springframework.org/schema/security" xmlns:context="http://www.springframework.org/schema/context"
   xsi:schemaLocation="http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security.xsd
+        https://www.springframework.org/schema/security/spring-security.xsd
         http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans.xsd
+        https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        https://www.springframework.org/schema/context/spring-context.xsd">
 
   <!-- ログイン認証の設定 -->
   <sec:http auto-config="false" entry-point-ref="loginUrlAuthenticationEntryPoint">
@@ -66,9 +66,6 @@
 
   <!-- ユーザー情報管理サービス -->
   <bean id="atrsUserService" class="jp.co.ntt.atrs.domain.service.a1.AtrsUserDetailService" />
-
-  <!-- パスワードエンコーダ -->
-  <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
   <!-- ログアウト成功Handler -->
   <bean id="logoutSuccessHandler" class="jp.co.ntt.atrs.app.common.security.AtrsLogoutSuccessHandler">
