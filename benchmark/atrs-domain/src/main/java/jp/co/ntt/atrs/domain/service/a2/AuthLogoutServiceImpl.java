@@ -39,7 +39,7 @@ public class AuthLogoutServiceImpl implements AuthLogoutService {
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
+    private static final Logger logger = LoggerFactory.getLogger(
             AuthLogoutServiceImpl.class);
 
     /**
@@ -68,8 +68,8 @@ public class AuthLogoutServiceImpl implements AuthLogoutService {
                             updateCount, 1));
         }
 
-        if (LOGGER.isInfoEnabled()) {
-            LOGGER.info(LogMessages.I_AR_A2_L0001.getMessage(member
+        if (logger.isInfoEnabled()) {
+            logger.info(LogMessages.I_AR_A2_L0001.getMessage(member
                     .getCustomerNo()));
         }
     }

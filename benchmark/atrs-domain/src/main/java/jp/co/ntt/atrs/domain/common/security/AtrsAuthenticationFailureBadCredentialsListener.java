@@ -35,7 +35,7 @@ public class AtrsAuthenticationFailureBadCredentialsListener implements
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
+    private static final Logger logger = LoggerFactory.getLogger(
             AtrsAuthenticationFailureBadCredentialsListener.class);
 
     /**
@@ -47,13 +47,13 @@ public class AtrsAuthenticationFailureBadCredentialsListener implements
     @Override
     public void onApplicationEvent(
             AuthenticationFailureBadCredentialsEvent event) {
-        if (!LOGGER.isInfoEnabled()) {
+        if (!logger.isInfoEnabled()) {
             return;
         }
         if (!(event.getException() instanceof BadCredentialsException)) {
             return;
         }
-        LOGGER.info(LogMessages.I_AR_A1_L2003.getMessage(event
+        logger.info(LogMessages.I_AR_A1_L2003.getMessage(event
                 .getAuthentication().getName()), event.getException());
     }
 

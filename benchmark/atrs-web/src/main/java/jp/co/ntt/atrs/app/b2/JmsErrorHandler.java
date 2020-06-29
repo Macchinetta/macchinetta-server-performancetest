@@ -22,7 +22,7 @@ import org.springframework.util.ErrorHandler;
 
 public class JmsErrorHandler implements ErrorHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(
+    private static final Logger logger = LoggerFactory.getLogger(
             JmsErrorHandler.class);
 
     @Override
@@ -35,17 +35,17 @@ public class JmsErrorHandler implements ErrorHandler {
                     .getCause();
             System.out.println(ex.getFailedMessage().getPayload());
 
-            log.error("Validation Error!");
+            logger.error("Validation Error!");
 
         } else if (t.getCause() instanceof ArithmeticException) {
             // ArithmeticException
 
-            log.error("ArithmeticException Error!");
+            logger.error("ArithmeticException Error!");
 
         } else {
             // Other Error
 
-            log.error("Other Error!");
+            logger.error("Other Error!");
 
         }
         t.printStackTrace();

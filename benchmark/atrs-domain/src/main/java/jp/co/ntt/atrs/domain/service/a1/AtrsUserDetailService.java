@@ -41,7 +41,7 @@ public class AtrsUserDetailService implements UserDetailsService {
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
+    private static final Logger logger = LoggerFactory.getLogger(
             AtrsUserDetailService.class);
 
     /**
@@ -64,8 +64,8 @@ public class AtrsUserDetailService implements UserDetailsService {
             String username) throws UsernameNotFoundException {
         Member member = memberRepository.findOneForLogin(username);
         if (member == null) {
-            if (LOGGER.isInfoEnabled()) {
-                LOGGER.info(LogMessages.I_AR_A1_L2001.getMessage(username));
+            if (logger.isInfoEnabled()) {
+                logger.info(LogMessages.I_AR_A1_L2001.getMessage(username));
             }
             String errorMessage = messageSource.getMessage(
                     AuthLoginErrorCode.E_AR_A1_2001.code(), null, Locale

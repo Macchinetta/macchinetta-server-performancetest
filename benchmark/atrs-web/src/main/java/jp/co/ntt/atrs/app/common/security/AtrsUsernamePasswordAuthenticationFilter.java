@@ -40,7 +40,7 @@ public class AtrsUsernamePasswordAuthenticationFilter extends
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
+    private static final Logger logger = LoggerFactory.getLogger(
             AtrsUsernamePasswordAuthenticationFilter.class);
 
     /**
@@ -86,8 +86,8 @@ public class AtrsUsernamePasswordAuthenticationFilter extends
         String password = obtainPassword(request);
 
         if (username == null || username.length() != customerNoLength) {
-            if (LOGGER.isInfoEnabled()) {
-                LOGGER.info(LogMessages.I_AR_A1_L2001.getMessage(username));
+            if (logger.isInfoEnabled()) {
+                logger.info(LogMessages.I_AR_A1_L2001.getMessage(username));
             }
             String errorMessage = messages.getMessage("FixedLength",
                     new Object[] {
@@ -97,8 +97,8 @@ public class AtrsUsernamePasswordAuthenticationFilter extends
         }
 
         if (password == null || password.length() < passwordMinLength) {
-            if (LOGGER.isInfoEnabled()) {
-                LOGGER.info(LogMessages.I_AR_A1_L2002.getMessage(username));
+            if (logger.isInfoEnabled()) {
+                logger.info(LogMessages.I_AR_A1_L2002.getMessage(username));
             }
             String errorMessage = this.messages.getMessage("MinLength",
                     new Object[] {

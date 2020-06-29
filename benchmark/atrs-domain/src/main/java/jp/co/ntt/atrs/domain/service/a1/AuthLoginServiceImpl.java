@@ -41,7 +41,7 @@ public class AuthLoginServiceImpl implements AuthLoginService {
     /**
      * ロガー。
      */
-    private static final Logger LOGGER = LoggerFactory.getLogger(
+    private static final Logger logger = LoggerFactory.getLogger(
             AuthLoginServiceImpl.class);
 
     /**
@@ -77,8 +77,8 @@ public class AuthLoginServiceImpl implements AuthLoginService {
                             updateCount, 1));
         }
 
-        if (LOGGER.isInfoEnabled()) {
-            LOGGER.info(LogMessages.I_AR_A1_L0001.getMessage(member
+        if (logger.isInfoEnabled()) {
+            logger.info(LogMessages.I_AR_A1_L0001.getMessage(member
                     .getCustomerNo()));
         }
     }

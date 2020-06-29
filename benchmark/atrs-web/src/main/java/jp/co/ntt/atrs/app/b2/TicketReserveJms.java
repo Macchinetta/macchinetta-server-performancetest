@@ -69,7 +69,7 @@ public class TicketReserveJms {
         ticketSearchForm.getFlightSearchCriteriaForm().setArrAirportCd(jmsInput
                 .getArrAirportCd());
 
-        Pageable pageable = new PageRequest(0, 1000);
+        Pageable pageable = PageRequest.of(0, 1000);
         FlightSearchResultOutputDto flightSearchResultOutputDto = ticketSearchHelper
                 .searchFlight(ticketSearchForm, pageable);
 

@@ -33,7 +33,11 @@
 
   <!-- Application Loggers -->
   <logger name="jp.co.ntt.atrs">
-    <level value="info" />
+    <level value="debug" />
+  </logger>
+
+  <logger name="jp.co.ntt.atrs.domain.repository">
+    <level value="trace" />
   </logger>
 
   <!-- アクセスログ(infoで出力) -->

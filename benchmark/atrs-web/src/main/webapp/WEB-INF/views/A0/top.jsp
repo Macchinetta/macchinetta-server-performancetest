@@ -5,7 +5,7 @@
       オンライン版
       フレームワーク（以下、フレームワーク）を用いたサンプルアプリケーションです。</li>
 
-    <li class="top-info-item">ATRSのバージョンは、1.5.0です。</li>
+    <li class="top-info-item">ATRSのバージョンは、1.7.0です。</li>
 
     <li class="top-info-item">ATRSの利用方法について
       <ul>
