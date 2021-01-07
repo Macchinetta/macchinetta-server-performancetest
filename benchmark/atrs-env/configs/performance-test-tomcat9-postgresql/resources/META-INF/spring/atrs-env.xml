@@ -23,8 +23,8 @@
   </bean>
 
   <util:properties id="jmsEnv">
-    <prop key="java.naming.factory.initial">org.apache.activemq.jndi.ActiveMQInitialContextFactory</prop>
-    <prop key="brokerURL">tcp://localhost:61616</prop>
+    <prop key="java.naming.factory.initial">${jms.context.factory}</prop>
+    <prop key="brokerURL">${jms.provider.url}</prop>
   </util:properties>
 
 </beans>
