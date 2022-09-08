@@ -231,7 +231,7 @@
     <com.google.code.maven-license-plugin.version>1.4.0</com.google.code.maven-license-plugin.version>
     <org.codehaus.mojo.version>2.5</org.codehaus.mojo.version>
     <!-- == Dependency Versions == -->
-    <postgresql.version>42.2.9</postgresql.version>
+    <postgresql.version>42.4.1</postgresql.version>
     <jaxb-core.version>2.3.0.1</jaxb-core.version>
     <jaxb-impl.version>2.3.2</jaxb-impl.version>
     <!-- == Project Properties == -->
